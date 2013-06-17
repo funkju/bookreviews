@@ -1,0 +1,248 @@
+.dirty_input {
+    background-image: url(../images/red_triangle.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+
+
+h1.header {
+    padding-top: 20px;
+}
+
+#header {
+    border-bottom: 2px solid #193D55;
+}
+
+div.readonly {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 1.5em;
+}
+
+tr.even {
+    background-color: #FFFFFF;
+}
+tr.odd {
+    background-color: #DDDDE6;
+}
+
+a, a:visited {
+    color: #444444;
+    text-decoration: underline;
+    font-weight: normal;
+}
+a:hover {
+    color: #000000;
+}
+
+
+/*---- Top Bar ----*/
+/*-----------------*/
+.top_bar {
+    width: 100%;
+    height: 17px;
+    background-image: url(../images/login_top.jpg);
+}
+#top ul.login {
+    background: url(../images/login_r.jpg) no-repeat scroll right 0 transparent;
+    clear: right;
+    color: white;
+    display: block;
+    float: right;
+    font-size: 80%;
+    font-weight: bold;
+    height: 38px;
+    line-height: 38px;
+    margin: 0;
+    padding-right: 35px;
+    position: relative;
+    right: 25px;
+    text-align: center;
+    width: auto;
+}
+#top ul.login li.left {
+    background: url(../images/login_l.jpg) no-repeat scroll left 0 transparent;
+    display: block;
+    float: left;
+    height: 38px;
+    margin: 0;
+    padding: 0;
+    width: 35px;
+}
+
+#top ul.login li {
+    background: url(../images/login_m.jpg) repeat-x scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 38px;
+    padding: 0 6px;
+    text-align: left;
+}
+
+#top ul.login li a {
+    color: #C3DDF7;
+}
+
+/*--- Welcome / Status ----*/
+/*-------------------------*/
+#welcome {
+    width: 100%;
+    text-align: right;
+    color: #808080;
+}
+#back_to_home {
+    position: relative;
+    top: -18px;
+    z-index: 2;
+}
+#status_holder {
+    position: fixed;
+    width: 100%;
+    top: 60px;
+    z-index: 1;
+}
+#status_holder > div {
+    margin: 0 auto;
+    width: 400px;
+}
+#status_message {
+    display: none;
+}
+
+
+/*---- Home Page / Menu ----*/
+/*------------------------*/
+ul.menu {
+    margin-left: auto;
+}
+
+.menu_item {
+    background-repeat: no-repeat;
+    background-position: top center;
+    list-style: none outside none;
+    float: left;
+    width: 110px;
+    text-align: center;
+    margin-left: 75px;
+    margin-top: 40px;
+    cursor: pointer;
+}
+.menu_item:hover {
+    text-decoration: underline;
+}
+.menu_item i {  
+    padding-right: 4px;
+}
+
+.menu_item.books {
+    background-image: url(../images/Function_Icon/book_48.png);
+}
+.menu_item.people {
+    background-image: url(../images/Function_Icon/users_two_48.png);
+}
+.menu_item.edit_prof {
+    background-image: url(../images/Function_Icon/user_48.png);
+}
+.menu_item.reviews {
+    background-image: url(../images/Function_Icon/paper_content_48.png);
+}
+.menu_item.distribution {
+    background-image: url(../images/Function_Icon/star_48.png);
+}
+.menu_item.forms {
+    background-image: url(../images/Function_Icon/app_48.png);
+}
+.menu_item.mailing {
+    background-image: url(../images/Function_Icon/mail_48.png);
+}
+.menu_item.reports {
+    background-image: url(../images/Function_Icon/pie_chart_48.png);
+}
+
+/*---- Login Page ----*/
+/*--------------------*/
+#login {
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+#login label {
+    font-size: 24px;
+    color: #2F4279;
+    vertical-align: middle;
+}
+
+#login input {
+    font-size: 20px;
+    height: 24px;
+    color: #2F4279;
+    padding: 4px;
+}
+
+div.button {
+    width: 75px;
+    color: #C3DDF7;
+    background-color: #2F4279;
+    border: 1px solid #808080;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 20px;
+    padding: 0px 6px 9px 6px;
+    margin: auto;
+    cursor: pointer;
+}
+div.button2 {
+    width: 75px;
+    color: #2F4279;
+    background-color: white;
+    border: 1px solid #808080;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 20px;
+    padding: 0px 6px 9px 6px;
+    margin: auto;
+    cursor: pointer;
+}
+div.button3 {
+    width: 75px;
+    color: #444444;
+    background-color: #808080;
+    border: 1px solid #444444;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 20px;
+    padding: 0px 6px 9px 6px;
+    margin: auto;
+    cursor: pointer;
+}
+
+div.button:hover {
+    color: white;
+    border: 1px solid black;
+}
+div.button2:hover {
+    border: 1px solid black;
+}
+#login_error {
+    color: red;
+    text-align: center;
+    width: 100%;
+    height: 26px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+// Default tooltip class name: .tooltip 
+.tooltip{ 
+position: absolute; 
+    top: 0; 
+    left: 0; 
+    z-index: 3; 
+    display: none; 
+}
+
+span.result_highlight {
+    background-color: #FFFBC3;
+}

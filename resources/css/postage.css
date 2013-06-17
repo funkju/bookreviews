@@ -1,0 +1,35 @@
+label {
+    display: block;
+    width: 115px;
+    float: left;
+    clear: left;
+}
+input {
+    float: left;
+    width: 200px;
+}
+
+div#postage_to, div#postage_from {
+    float: left;
+    width: 375px;
+}
+div#to_address_match {
+    float: left;
+    width: 130px;
+}
+div#to_csz_match {
+    float: left;
+    width: 122px;
+}
+div#cleanse_to_address.button2, div#getrates.button2 {
+    font-size: 12px;
+    margin: 0;
+    padding: 2px 4px;
+    width: 100px;
+}
+
+div#postage_rates {
+    float: left;
+    width: 100%;
+}
+

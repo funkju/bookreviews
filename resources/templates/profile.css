@@ -1,0 +1,57 @@
+<div id="people_content">
+    <div id="people_left">
+       <label for="people_filter" id="people_filter_label">Find Person</label><br>
+       <input type="text" name="people_filter" id="people_filter">
+       <br><br>
+       <div id="people_list">
+          <ul>
+           {foreach from=$people_list item=l_person}
+              {if $l_person.last_name eq '' && $l_person.first_name eq ''}
+                <li id="{$l_person.person_id}">{$l_person.institution} <br>
+              {else}
+                <li id="{$l_person.person_id}">{$l_person.last_name}, {$l_person.first_name}  <br>
+              {/if}
+           {/foreach}
+          </ul>
+       </div>
+    </div>
+    <div id="people_top_right">
+        <ul>
+            {if $user.role_id eq $role.ADMINISTRATOR || $user.role_id eq $role.EDITOR}
+            <li id="people_add">Add New</li>
+            <li id="people_del">Delete</li>
+            {/if}
+        </ul>
+    </div>
+
+    <div id="people_center">
+        {include file="person_form.tpl"}
+    </div>
+
+</div>
+
+
+{literal}
+<script type="text/javascript">
+    $("#people_list li").click(function(){
+        $("#people_list li").each(function(idx,el){
+            $(el).removeClass("selected");
+        });
+
+        $(this).addClass("selected");
+        loadPerson(this.id);
+    });
+    {/literal}
+    /*Add listeners for DELETE and ADD links*/
+    {if $user.role_id eq $role.ADMINISTRATOR || $user.role_id eq $role.EDITOR}
+        {literal}
+            $("#people_del").bind('click', delPerson);
+    
+        {/literal}
+    {/if}
+    {literal}
+
+    $("#people_filter").bind('keyup', filterPerson);
+
+</script>
+{/literal}

@@ -1,0 +1,4 @@
+<FilesMatch "(svc|home|login|people|profile|books|reviews|distribution|forms|reports|postage|mailing)$">
+  ForceType application/x-httpd-php 
+</FilesMatch>
+

@@ -1,0 +1,215 @@
+/***********************************************************************
+****************** Distribution  List Page *****************************
+/***********************************************************************/
+#distribution_actions {
+    float: right;
+}
+#dist_assign_books, #dist_create_dist, #dist_deactivate_list, #dist_manage_lists {
+    padding-left: 18px;
+    padding-right: 10px;
+    color: #444444;
+    text-decoration: underline;
+    font-weight: normal;
+}
+#dist_assign_books:hover, #dist_create_dist:hover, #dist_deactivate_list:hover {
+    color: #000000;
+}
+#dist_assign_books {
+    background: url("../images/icons/attach.png") no-repeat left 0 transparent;
+}
+#dist_create_dist {
+    background: url("../images/icons/add.png") no-repeat left 0 transparent;
+}
+#dist_deactivate_list {
+    background: url("../images/Function_Icon/cancel_16.png") no-repeat left 0 transparent;
+}
+#dist_manage_lists {
+    background: url("../images/icons/star.png") no-repeat left 0 transparent;
+}
+
+#distribution_ranks.fixed_scroll {
+    position: fixed;
+    top: 0px !important; 
+}
+#distribution_ranks {
+    float:        left;
+    width:        220px;
+    margin-right: 15px;
+    position: absolute;
+}
+#distribution_ranks img {
+    float:        left;
+    width:        40px;
+    margin-right: 5px;
+}
+#distribution_ranks ul {
+    list-style:   none;
+}
+#distribution_ranks li {
+    clear:            left;
+    min-height:       58px;
+    position:         relative;
+    background-color: white;
+}
+div.rank_number {
+    position: absolute;
+    width: 12px;
+    top: 0px;
+    left: -15px;
+}
+
+
+#distribution_books {
+    float: left;
+    margin-left: 235px;
+    width: 515px;
+}
+#distribution_books_table_holder {
+    min-height: 700px;
+}
+#distribution_books_table {
+    border-collapse: collapse;
+}
+#distribution_books_table tr.odd {
+    background-color: #D7DCFF;
+}
+#distribution_books_table td.rank {
+    width: 45px;
+    padding-left: 2px;
+}
+#distribution_books_table td.title {
+    width: 390px;
+}
+#distribution_books_table td.details {
+    width: 55px;
+}
+
+#distribution_books div.button {
+    font-size: 10px;
+    padding:   0px;
+}
+
+h3 {
+    border-bottom: 1px solid #444444;
+    margin-top:    15px;
+    margin-bottom: 15px;
+    width:         80%;
+}
+
+
+
+
+/***********************************************************************
+****************** Create Distribution Page ****************************
+***********************************************************************/
+input#dist_name {
+    border: 1px #FFFFFF solid; 
+    font-size: 30px;
+    width: 450px;
+    color: #444444;
+    margin-bottom: 5px;
+    float: left;
+}
+input#dist_name:hover, input#dist_name:focus, input#dist_name:active {
+    border: 1px #FFFFFF inset;
+}
+div#dist_expire_wrap {
+    border: 1px #FFFFFF inset;
+    width:  195px;
+    float:  left;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 137px;
+}
+div#dist_expire_wrap > label {
+    font-size: 11px;
+    padding-left: 3px;
+}
+input#dist_expire {
+    border: none;
+    width: 90px;
+}
+
+div#dist_create_button, div#dist_save_button {
+    float: left;
+    font-size: 13px;
+    margin-top: 10px;
+    padding-bottom: 0px;
+    width: 135px;
+}
+h3#dist_books {
+    clear: left;
+    float: left;
+    margin-right: 10px;
+}
+div#chk_holder {
+    float: right;
+    margin-top: 2px;
+}
+
+table#dist_create_table {
+    clear: left;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+table#dist_create_table tbody tr:hover {
+    background-color: #C3DDF7;
+}
+table tr {
+    cursor: pointer;
+}
+table#dist_create_table td.check {
+    padding-right: 20px;
+    width: 15px;
+}
+table#dist_create_table td.title{
+    width: 450px;
+}
+
+/******************************************************
+********************DISTRIBUTION ASSIGN****************
+******************************************************/
+#distribution_assign_actions {
+    float: right;
+}
+
+#distribution_assign table {
+    margin-left: 20px;
+    border-collapse: collapse;
+}
+
+td.assign_button div {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+td.assign_title {
+    width: 625px;
+    font-size: 13px;
+}
+td.assign_rank {
+    width: 25px;
+}
+
+
+/******************************************************
+****************DISTRIBUTION MANAGE********************
+******************************************************/
+a.manage_dl_view {
+    background: url("../images/icons/magnifier.png") no-repeat left 0 transparent;
+    padding-left: 15px;
+}
+a.manage_dl_edit {
+    background: url("../images/icons/pencil.png") no-repeat left 0 transparent;
+    padding-left: 18px;
+}
+a.manage_dl_act {
+    background: url("../images/icons/bullet_green.png") no-repeat left 0 transparent;
+    padding-left: 16px;
+}
+a.manage_dl_deact {
+    background: url("../images/icons/bullet_red.png") no-repeat left 0 transparent;
+    padding-left: 16px;
+}
+

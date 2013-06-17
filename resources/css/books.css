@@ -1,0 +1,142 @@
+/*----   Book Content ----*/
+/*------------------------*/
+#book_content {
+    position: relative;
+}
+
+input.disabled, select.disabled, textarea.disabled {
+    background: white;
+    border: none;
+    color: black;
+}
+
+
+
+/*---- Book Right ----*/
+/*----------------------*/
+#book_buttons {
+    clear: left;
+    padding-bottom: 15px;
+}
+#book_buttons ul {
+    list-style: none;
+}
+#book_buttons  li {
+    float: left;
+    cursor: pointer;
+    margin-right: 16px;
+    padding-left: 16px;
+    text-decoration: underline;
+}
+#book_buttons  li:hover {
+    color: black;
+}
+
+
+#book_add i , #book_del i, #assign_rev i {
+    margin-right: 4px;
+
+}
+
+
+/*---- Book Left ----*/
+/*-------------------*/
+#book_top{
+}
+
+#book_top div.button2 {
+    font-size: 14px;
+    height: 15px;
+    margin-left: 10px;
+    width: 125px;
+    float: left;
+}
+
+#book_list {
+    overflow-y: auto;
+}
+
+
+#book_list td {
+    cursor: pointer;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+#book_search_header {
+  text-align: center;
+}
+#book_search_header .prev {
+  float: left;
+}
+#book_search_header .next {
+  float: right;
+}
+
+#book_search {
+    width: 653px;
+    height: 28px;
+    margin-right: 10px;
+    float: left;
+}
+#book_search_button {
+    float: left;
+}
+
+#other_actions > ul {
+    list-style: none;
+}
+
+/*---- People Center ----*/
+/*-----------------------*/
+#book_center {
+    width: 750px;
+    float: left;
+}
+#book_form form {
+    position: relative;
+}
+
+#book_form h2.book_title {
+    width: 600px;
+}
+
+#book_form form input, #book_form form textarea {
+    width: 400px;
+}
+#book_form form label.checkbox input {
+    width: auto !important;
+}
+
+#book_form_buttons {
+     text-align: right;
+}
+
+img.thumbnail {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 48px;
+}
+
+/*---- Assign Reviews ----*/
+/*------------------------*/
+#book_center > table {
+    border-collapse: collapse;
+}
+
+tr.assign_reviews > td.title {
+    padding: 5px;
+}
+tr.assign_reviews > td.title > a, tr.assign_reviews > td.title > a:hover, tr.assign_reviews > td.title > a:visited {
+    color: #444444;
+    font-size: 11px;
+}
+tr.assign_reviews > td > div.button2{
+    font-size: 12px; 
+    padding: 2px 3px;
+    width: 35px;
+}
+
+select.assign_book_review, div.button2.assign_book_review {
+    float: left;
+}

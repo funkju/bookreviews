@@ -1,0 +1,135 @@
+#people_content {
+    position: relative;
+}
+input.disabled, select.disabled, textarea.disabled {
+    background: white;
+    border: none;
+    color: black;
+}
+
+
+
+/*----Profile Center ----*/
+/*-----------------------*/
+#people_center {
+    width: 450px;
+    float: left;
+    margin-top: 15px;
+}
+
+#people_center tbody{
+    width: 450px;
+}
+
+#people_center input, select, textarea, div.readonly{
+    font-size: 11px;
+}
+
+#people_form_line_1 {
+    height: 30px;
+}
+#people_form_line_1 label, #people_form_line_1 input, #people_form_line_1 div.readonly {
+    display: block;
+    float: left;
+    width: 130px;
+    margin-right: 10px;
+}
+
+#people_form_line_2 {
+    height: 30px;
+    margin-top: 10px;
+}
+#people_form_line_2 label, #people_form_line_2 input, #people_form_line_2 select, #people_form_line_2 div.readonly {
+    display: block;
+    float: left;
+    width: 130px;
+    margin-right: 10px;
+}
+
+#people_form_line_2 #password_button_holder {
+    float: left;
+    margin-right: 36px;
+    height: 10px;
+    width: 100px;
+}
+#people_form_line_2 div.button {
+    font-size: 10px;
+    margin-top:-2px;
+    height: 100%;
+    width: 100%;
+}
+
+#people_form_line_3 {
+    height: 30px;
+    margin-top: 10px;
+}
+#people_form_line_3 label, #people_form_line_3 input, #people_form_line_3 div.readonly {
+    display: block;
+    float: left;
+    width: 200px;
+    margin-right: 10px;
+}
+
+#people_form_line_4 {
+    height: 60px;
+    margin-top: 10px;
+}
+#people_form_line_4 label, #people_form_line_4 textarea, #people_form_line_4 div.readonly {
+    display: block;
+    float: left;
+    width: 411px;
+    margin-right: 10px;
+}
+#people_form_line_4 textarea {
+    height: 75px;
+}
+#people_form_line_5 {
+    margin-top: 45px;
+}
+#people_form_line_6, #people_form_line_7, #people_form_line_8, #people_form_line_9, #people_form_line_10, #people_form_line_11, #people_form_line_12 {
+    height: 30px;
+    margin-top: 10px;
+}
+#people_full_name, #people_line_1, #people_line_2 {
+    display: block;
+    float: left;
+    width: 250px;
+}
+#address__full_name, #address__line_1, #address__line_2 {
+    width: 200px;
+    float: left;
+    margin-right: 50px;
+}
+#address__voice, #address__fax {
+    float: left;
+    width: 95px;
+}
+#address__email {
+    float: left;
+    width: 185px;
+}
+#address__state {
+    float: left;
+    width: 100px;
+}
+#address__country {
+    float: left;
+    width: 200px;
+}
+
+
+#people_form_line_13 {
+    margin-top: 50px;
+}
+#people_form_line_13 div.button, #people_form_line_13 div.button2 { 
+    height: 10px;
+    float: right;
+    font-size: 10px;
+}
+#people_form_line_13 div.button {
+    margin-right: 15px;
+}
+#people_form_line_13 div.button2 {
+    width: 100px;
+}
+

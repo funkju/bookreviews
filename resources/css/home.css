@@ -1,0 +1,12 @@
+#new_attach_status {
+    background-color: #32639B;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    margin: 0 10%;
+    text-align: center;
+    width: 80%;
+}
+#new_attach_status > a {
+	color: #FFF !important;
+}
+
