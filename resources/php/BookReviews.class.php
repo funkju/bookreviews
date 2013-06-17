@@ -2,20 +2,29 @@
     ini_set('display_errors',1);
 
     //TODO REMOVE FOR PRODUCTION
-    $_SERVER['DOCUMENT_ROOT'] = "/Users/justinfunk/WWW/bookreviews";
 
-        define('URL', 'http://bookreviews');
-    if($_SERVER['HTTP_HOST'] == "bookreviews"){
-        define('URI', '');
-    } else {
-        define('URI', '/bookreviews');
-    }
-
-    define("UPLOAD_ROOT", "E:/inetpub/wwwroot/bookreviews/resources/attachments");
+	switch($_SERVER['SERVER_NAME']){
+		case "bookreviews.bradleyclothing.com":
+    		$_SERVER['DOCUMENT_ROOT'] = "/home1/saltcomp/www/bookreviews";
+        	define('URI', '');
+			define('URL', 'http://bookreviews.bradleyclothing.com');
+    		define("UPLOAD_ROOT", "/home1/saltcomp/www/bookreviews/resources/attachments");
+			break;
+		case "bookreviews.dev":
+    		$_SERVER['DOCUMENT_ROOT'] = "/home1/saltcomp/www/bookreviews";
+        	define('URI', '');
+			define('URL', 'http://bookreviews.dev');
+    		define("UPLOAD_ROOT", "/Users/justinfunk/WWW/bookreviews/resources/attachments");
+			break;
+		default:
+			define("URI", "/bookreviews");
+			define('URL', 'http://magazine.amstat.org');
+    		define("UPLOAD_ROOT", "E:/inetpub/wwwroot/bookreviews/resources/attachments");
+	}
+  	
 
     //Set SMTP for Mailing
     ini_set('SMTP','localhost'); 
-
 
 
     /*** DATABASE CLASSES **/
