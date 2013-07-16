@@ -69,7 +69,11 @@ class DistributionList extends Table {
         return $param;
     }
 
-    function create($name, $expires, $books){
+    function create($vars){
+    	$name = $vars['name'];
+	$expires = $vars['expires'];
+	$books = $vars['books'];
+
         //Deactivate all distribution lists
         $dl = new DistributionList();
         $dls = $dl->find(array(array('active',1)));

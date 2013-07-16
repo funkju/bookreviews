@@ -17,7 +17,7 @@ function createDistList(){
             data: {
                 cls: 'DistributionList',
                 fn: 'create',
-                params: [name, expire, book_ids]
+                params: [{name: name, expires: expire, books: book_ids}]
             },
             async: true,
             success: function(ret){
