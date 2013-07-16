@@ -1,27 +1,46 @@
+#tabs > div {
+    min-height: 180px;
+}
+
 #login {
     height: 300px;
 }
 
 #login_fields {
-    width: 350px;
-    float: left;
+    width: 363px;
+    float: right;
 }
 #login_form_links {
     float: left;
-    width: 400px;
+    width: 750px;
+    text-align: left;
 }
 #login_form_links > h1 {
     margin-bottom: 25px;
 }
 
 
-#login_form_links > ul {
+#login_form_links  ul {
     text-align: left;
-    padding-left: 25px;
     list-style: none;
 }
 
-#login_form_links >ul >li> a{
+#login_form_links > div > ul > li.plain {
+    font-weight: 100;
+    padding: 8px 8px 0px 8px;
+}
+
+#login_form_links > div > ul > li.plain2 {
+    font-weight: 100;
+    padding: 8px 0px 0px 47px;
+    text-align: center;
+}
+
+#login_form_links > div > ul > li:last-child {
+    float: right;
+}
+
+#login_form_links > ul >li> a{
     text-decoration: underline;
 }
    
@@ -29,8 +48,93 @@
     text-decoration: underline;
     background: url(../images/icons/application_form_edit.png) no-repeat;
     padding-left: 20px;
-
-div.button{
-    padding-top: 3px !important;
-    padding-bottom: 6px !important; 
 }
+
+#tabs > ul.ui-tabs-nav > li > a {
+    background: #2F4279 !important;
+    color: #C3DDF7 !important;
+}
+#tabs > ul.ui-tabs-nav > li:hover {
+    border-color: #2F4279 !important;
+}
+#tabs > ul.ui-tabs-nav > li:hover > a {
+    color: #FFF !important;
+}
+
+#tabs > ul.ui-tabs-nav > li.ui-tabs-selected:hover {
+    border: 1px solid #ddd !important;
+    border-bottom: 0px solid #fff !important;
+}
+
+#tabs > ul.ui-tabs-nav > li.ui-tabs-selected  > a{
+    background: #FFFFFF !important;
+    color: #2F4279 !important;
+}
+
+#submit-content input.default, #submit-content textarea.default {
+    color: #BBB;
+}
+
+#access_inst, #content_desc {
+    height: 8em !important;
+}
+#access_inst label, #content_desc label {
+    float: none;
+}
+#access_inst textarea, #content_desc textarea {
+    float: none;
+}
+#submit-content label {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    width: 150px;
+}
+#submit-content input, #submit-content textarea {
+    float: left;
+    width: 250px;
+    font-size: 12px;
+    padding: 4px;
+}
+#submit-content #author_yes, #submit-content #ebook {
+    width: 15px;
+}
+#submit-content > div {
+    padding-bottom: 10px;
+    clear: left;
+    height: 1.7em;
+}
+#author_yes_wrap label { width: auto; }
+#book_yes_wrap label { width: auto; }
+
+#submit-content .button, #submit-thanks .button {
+    font-size: 12px;
+    width: 100px;
+    line-height: 2.6em;
+    height: 1.7em;
+}
+
+#for-login {
+    padding-top: 60px;
+}
+#for-login div.button {
+    font-size: 18px;
+    line-height: 1.8em;
+    float: left;
+}
+
+#for-login form {
+    margin: 0 auto;
+    width: 540px;
+}
+
+#for-login form input, #for-login form div {
+    font-size: 18px;
+    height: 22px;
+}
+
+#gotchu { display: none; }
+
+#submit-error { color: red; }
+
+#submit-thanks, #submit-error { display: none; }

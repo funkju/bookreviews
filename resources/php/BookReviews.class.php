@@ -1,25 +1,23 @@
 <?php
     ini_set('display_errors',1);
 
-    //TODO REMOVE FOR PRODUCTION
-
 	switch($_SERVER['SERVER_NAME']){
 		case "bookreviews.bradleyclothing.com":
-    		$_SERVER['DOCUMENT_ROOT'] = "/home1/saltcomp/www/bookreviews";
+	    	$_SERVER['DOCUMENT_ROOT'] = "/home1/saltcomp/www/bookreviews";
         	define('URI', '');
 			define('URL', 'http://bookreviews.bradleyclothing.com');
     		define("UPLOAD_ROOT", "/home1/saltcomp/www/bookreviews/resources/attachments");
 			break;
 		case "bookreviews.dev":
-    		$_SERVER['DOCUMENT_ROOT'] = "/home1/saltcomp/www/bookreviews";
-        	define('URI', '');
-			define('URL', 'http://bookreviews.dev');
-    		define("UPLOAD_ROOT", "/Users/justinfunk/WWW/bookreviews/resources/attachments");
-			break;
+            $_SERVER['DOCUMENT_ROOT'] = "/Users/justinfunk/WWW/bookreviews";
+            define('URI', '');
+            define('URL', 'http://bookreviews.dev');
+            define("UPLOAD_ROOT", "/Users/justinfunk/WWW/bookreviews/resources/attachments");
+            break;
 		default:
 			define("URI", "/bookreviews");
 			define('URL', 'http://magazine.amstat.org');
-    		define("UPLOAD_ROOT", "E:/inetpub/wwwroot/bookreviews/resources/attachments");
+	    	define("UPLOAD_ROOT", "E:/inetpub/wwwroot/bookreviews/resources/attachments");
 	}
   	
 
@@ -40,6 +38,8 @@
     require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/distribution_list_preference.class.php");
     require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/review_type.class.php");
     require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/journal.class.php");
+    require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/material.class.php");
+
 
 
     /** OTHER CLASSES **/
@@ -98,7 +98,7 @@
             if(isset($params[0])){
                 //Some services aren't protected (like login)
                 if($this->user === false && 
-                    !($params[0] == "svc" && isset($params[1]) && $params[1] == "doLogin") &&  
+                    !($params[0] == "svc" && isset($params[1]) && ($params[1] == "doLogin" || $params[1] == "submitContent")) &&  
                     $params[0] != "login"){
                     $_SESSION['JR_Redirect'] = implode($params,"/");
                     $href = URL.URI."/login";
@@ -158,6 +158,10 @@
                                     print $this->getBookByISBN($_POST['isbn']);
                                     exit;
                                     break;
+				case "submitContent":
+				    print $this->submitContent($_GET);
+				    exit;
+				    break;
                             }
                         } else {
                             array_shift($params);
@@ -352,6 +356,24 @@
                         $role = new Role();
                         $this->ds->roles = $role->getAll();
                         break;
+
+		    //Show Submitted Page
+		    case "submitted":
+			array_shift($params);
+
+			if(!isset($params[0])){
+				$logger->log("Going to submitted", Logger::DEBUG);
+				if(isset($_GET['query'])){
+					$this->ds->query = $_GET;
+				}	
+				$this->ds->type = "submitted";
+
+				//Get submitted content
+				$m = new Material();
+				$this->ds->mats = $m->find(array(array('screen_status','=',Material::UNDECIDED)));
+			
+			}
+			break;
 
                     //Show BOOKS Page
                     case "books":
@@ -1385,7 +1407,61 @@
 
 				public function getNewAttachmentsURL($last_login){
 					return false;
-				}		
+				}	
+
+
+
+	/**
+         * submitContent
+	 *
+ 	 * Directed from hub() after the submission of
+         * the submit content form.
+	 *
+	 * Processes content submission
+	 * 
+	 * Prints JSON string
+	 *
+	 * @param $data array Data to submit
+ 	 * @return string
+	 * 2.25h
+	 */
+	public function submitContent($data){
+		$logger = Logger::getInstance();
+
+		$logger->log("Someone is submitting content.", Logger::DEBUG);
+
+		//Check our honeypot
+		if($data['hp_name'] != '' || time() - $data['hp_time'] < 20){
+			$d = array('status' => -1);
+		} else {
+			//Unset field
+			unset($data['author_yes']);
+			unset($data['hp_name']);
+			unset($data['hp_time']);
+
+			//Add
+			$data['screen_status'] = Material::UNDECIDED;
+	
+			$data['author_name'] = ($data['author_name'] == "") ? $data['submitter_name'] : $data['author_name']; 
+			$data['author_email'] = ($data['author_email'] == "") ? $data['submitter_email'] : $data['author_email']; 
+		
+
+			$ret = $this->svcCreate(array('data'=>$data, 'cls'=>'Material'));
+
+			if($ret == -1){
+				$d = array('status'=> -1);
+			} else {
+				$d = array('status'=> $ret);
+			}	
+		}
+
+		print json_encode($d);
+
+		exit;
+		
+		
+
+	}	
 
         /** 
          * doLogin
@@ -1716,6 +1792,7 @@
         }
 
     }
+
 
     function sortbooks($a, $b){
        if(!isset($a['title']) || !isset($b['title'])) return 0;

@@ -10,6 +10,10 @@
         <div id="body">
         {include file="top_bar.tpl"}
         <div id="content" style="margin: auto; width: 750px;">
+            <div id="header">
+                {include file="header.tpl"}
+            </div>
+            {include file="welcome.tpl"}
             {if $type eq "home"}
                 <div id="menu">
                     {include file="home.tpl"}
@@ -67,6 +71,12 @@
 									{include file="reports.tpl"}
 								</div>
 						{/if}
+
+	    {if $type eq "submitted"}
+		<div id="submitted">
+			{include file="submitted.tpl"}
+		</div>
+	    {/if}
         </div>
         {include file="foot.tpl"}
         <div id="body">

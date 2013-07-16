@@ -1,4 +1,5 @@
 <?php
+    error_reporting(E_ALL ^ E_STRICT);
 
     include("resources/php/BookReviews.class.php");
     session_start();

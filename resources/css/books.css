@@ -16,7 +16,6 @@ input.disabled, select.disabled, textarea.disabled {
 /*----------------------*/
 #book_buttons {
     clear: left;
-    padding-bottom: 15px;
 }
 #book_buttons ul {
     list-style: none;
@@ -33,9 +32,14 @@ input.disabled, select.disabled, textarea.disabled {
 }
 
 
-#book_add i , #book_del i, #assign_rev i {
-    margin-right: 4px;
-
+#book_add {
+    background: url(../images/Function_Icon/add_16.png) no-repeat scroll left 0 transparent;
+}
+#book_del {
+    background: url(../images/Function_Icon/cancel_16.png) no-repeat scroll left 0 transparent;
+}
+#assign_rev {
+    background: url(../images/icons/attach.png) no-repeat scroll left 0 transparent;
 }
 
 
@@ -53,32 +57,46 @@ input.disabled, select.disabled, textarea.disabled {
 }
 
 #book_list {
+    width: 750px;
     overflow-y: auto;
 }
 
+#book_list li.selected {
+    background-color: #2F4279;
+    color: white;
+    border-top: 1px solid #2F4279;
+    border-bottom: 1px solid #2F4279;
+}
 
-#book_list td {
+#book_list li {
     cursor: pointer;
+    font-size: 12px;
+    padding-left: 4px;
+    padding-bottom: 2px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
     white-space: nowrap;
     overflow-x: hidden;
 }
-#book_search_header {
-  text-align: center;
+#book_list li:hover {
+    color: white;
+    background-color: #2F4279;
+    border-top: 1px solid #2F4279;
+    border-bottom: 1px solid #2F4279;
 }
-#book_search_header .prev {
-  float: left;
-}
-#book_search_header .next {
-  float: right;
+#book_list li:hover span.result_highlight {
+    color: #444444;
 }
 
 #book_search {
-    width: 653px;
-    height: 28px;
+    width: 500px;
+    height: 24px;
     margin-right: 10px;
     float: left;
 }
 #book_search_button {
+    font-size: 16px;
+    height: 15px;
     float: left;
 }
 
@@ -92,30 +110,181 @@ input.disabled, select.disabled, textarea.disabled {
     width: 750px;
     float: left;
 }
-#book_form form {
-    position: relative;
+
+#book_center tbody{
+    width: 750px;
 }
 
-#book_form h2.book_title {
-    width: 600px;
+#book_center input, select, textarea{
+    font-size: 11px;
+    display: block;
+    float: left;
+    margin-right: 10px;
 }
 
-#book_form form input, #book_form form textarea {
-    width: 400px;
+#book_form_line_1 {
+    height: 30px;
 }
-#book_form form label.checkbox input {
-    width: auto !important;
+#book_form_line_1 input {
+    width: 640px;
 }
-
-#book_form_buttons {
-     text-align: right;
+label#book_authors {
+    margin-right: 315px;
 }
-
+#book__authors{
+    width: 345px;
+}
+#book__edition_number {
+    width: 40px;
+}
 img.thumbnail {
-    position: absolute;
-    top: 15px;
-    right: 15px;
+    float: left;
+    margin: 10px 10px 35px;
     width: 48px;
+}
+
+#book_form_line_3 {
+    margin-top: 25px;
+}
+label#book_year {
+    margin-right: 18px;
+}
+label#book_publisher {
+    margin-right: 244px;
+}
+#book__year {
+    width: 35px;
+}
+#book__publisher {
+    width: 280px;
+}
+label#book_edition_number{
+    margin-right: 8px;
+}
+#book__copies_on_hand {
+    width: 35px;
+}
+#book__book_num {
+    margin-left: 50px;
+}
+
+
+#book_form_line_4, #book_form_line_5 {
+    margin-top: 25px;
+    clear: left;
+}
+#book_form_line_4 label, #book_form_line_4 textarea, #book_form_line_5 label, #book_form_line_5 textarea {
+    float: left;
+    width: 360px;
+    margin-right: 10px;
+    overflow-y: auto;
+}
+#book_form_line_4 textarea, #book_form_line_5 textarea {
+    height: 75px;
+}
+
+#book_form_line_6 {
+    display: block;
+    width: 750px;
+    height: 250px;
+
+}
+
+#book_form_line_6_left, #book_form_line_6_right {
+    width: 360px;
+    float: left;
+    margin-top:10px;
+}
+#book_form_line_6_left {
+    border-right: 1px solid #2F4279;
+    margin-right: 20px;
+}
+
+
+label#book_marketing_info_isbn {
+    padding-right: 70px;
+}
+label#book_marketing_info_pages {
+    padding-right: 32px;
+}
+#book_marketing_info__isbn, #extra_book_marketing_info__isbn {
+    width: 90px;
+}
+#book_marketing_info__pages, #extra_book_marketing_info__pages {
+    width: 60px;
+}
+label#book_marketing_info_binding_type {
+    padding-right: 20px;
+}
+#book_marketing_info__binding_type, #extra_book_marketing_info__binding_type {
+    width: 40px;
+    margin-right: 25px !important;
+}
+#book_marketing_info__price, #extra_book_marketing_info__price {
+    width: 60px;
+}
+
+#book_form_line_9, #book_form_line_13 {
+    margin-top: 12px;
+}
+
+#book_form_line_9 label, #book_form_line_13 label {
+    float: left;
+    margin-right: 5px;
+}
+
+#book_form_line_9 input, #book_form_line_13 input {
+    margin-right: 2px !important;
+}
+
+#book_form_line_10, #book_form_line_14 {
+    margin-top: 45px;
+}
+
+#book_form_line_10 textarea, #book_form_line_14 textarea{
+    overflow-y: auto;
+}
+
+#book_form_line_15 {
+    float: left;
+    width: 360px;
+}
+
+label#book_review_journal {
+    padding-right: 35px;
+}
+select#book_review__journal_id {
+    width: 112px;
+}
+select#book_review__review_type_id {
+    width: 95px;
+}
+
+div#load_review.button2 {
+    float: left !important;
+    position: relative;
+    top: -4px;
+}
+
+#book_form_line_16 {
+    margin-bottom: 30px;   
+    float: left;
+    height: 100px;
+    width: 360px;
+}
+
+
+#book_form_buttons div.button, #book_form_buttons div.button2, div#book_form_line_15 div.button2 {
+    height: 14px;
+    float: right;
+    font-size: 12px;
+}
+
+#book_form_buttons div.button {
+    margin-right: 15px;
+}
+#book_form_buttons div.button2 {
+    width: 100px;
 }
 
 /*---- Assign Reviews ----*/

@@ -98,15 +98,28 @@ a:hover {
 }
 #status_holder {
     position: fixed;
-    width: 100%;
-    top: 60px;
+    top: 0px;
+    width: 618px;
     z-index: 1;
 }
-#status_holder > div {
-    margin: 0 auto;
-    width: 400px;
-}
 #status_message {
+    width: 275px;
+    height: 1.5em;
+    font-size: 18px;
+    padding-top: 12px;
+    text-align: center;
+    background-color: #32639B;
+    
+    /* for new browsers */
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    /* for older FF browsers */
+    -moz-border-radius: 0px 0px 5px 5px;
+    /* too bad everyone else */
+
+    color: #FFFFFF;
+    margin: 0  auto;
+
     display: none;
 }
 
@@ -122,17 +135,15 @@ ul.menu {
     background-position: top center;
     list-style: none outside none;
     float: left;
-    width: 110px;
+    width: 105px;
     text-align: center;
+    padding-top: 50px;
     margin-left: 75px;
     margin-top: 40px;
     cursor: pointer;
 }
 .menu_item:hover {
-    text-decoration: underline;
-}
-.menu_item i {  
-    padding-right: 4px;
+    font-weight: bold;
 }
 
 .menu_item.books {
@@ -150,6 +161,9 @@ ul.menu {
 .menu_item.distribution {
     background-image: url(../images/Function_Icon/star_48.png);
 }
+.menu_item.submitted {
+    background-image: url(../images/Function_Icon/box_download_48.png);
+}
 .menu_item.forms {
     background-image: url(../images/Function_Icon/app_48.png);
 }
@@ -165,20 +179,26 @@ ul.menu {
 #login {
     width: 100%;
     text-align: center;
-    margin-top: 100px;
-}
-
-#login label {
-    font-size: 24px;
-    color: #2F4279;
-    vertical-align: middle;
+    margin-top: 10px;
 }
 
 #login input {
-    font-size: 20px;
-    height: 24px;
+    font-size: 12px;
+    height: 16px;
     color: #2F4279;
     padding: 4px;
+    float: left;
+    margin-right: 10px;
+}
+
+#login input.default {
+    color: #BBB;
+}
+
+#login_fields div.button {
+    font-size: 12px;
+    float: right;
+    padding: 2px;
 }
 
 div.button {

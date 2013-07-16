@@ -17,6 +17,8 @@
 		{include file="reviews_my_reviews.tpl"}
 {elseif $reviews_type eq "newAttachments"}
 		{include file="new_attachments.tpl"}
+{elseif $reviews_type eq "doNotReview"}
+    {include file="do_not_review.tpl"}
 {elseif $reviews_type eq "home"}
     <div id="reviews_search">
         <input type="text" style="width: 500px; margin-right: 10px; float: left; height:24px; font-size: 18px;" {if $query.query}value="{$query.query}"{/if}></input>
@@ -39,6 +41,10 @@
           <li id="reviews_pending" {literal}onclick="showStatus('Loading...', false, function(){window.location=uri+'/reviews/pendingReviews'});"{/literal}>Pending Reviews</li>
           <li id="reviews_unpublished" {literal}onclick="showStatus('Loading...', false, function(){window.location=uri+'/reviews/unpublishedReviews'});"{/literal}>Unpublished Reviews</li>
           <li id="reviews_by_issue" {literal}onclick="showStatus('Loading...', false, function(){window.location=uri+'/reviews/reviewsByIssue'});"{/literal}>Reviews By Issue</li>
+          {/if}
+          {if $user.role_id eq $role.EDITOR || $user.role_id eq $role.ADMINISTRATOR}
+          <li id="reviews_do_not_review" {literal}onclick="showStatus('Loading...', false, function(){window.
+          location=uri+'/reviews/doNotReviewList'});"{/literal}>Do Not Review List</li>
           {/if}
        </ul>
     </div>

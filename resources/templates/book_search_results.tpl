@@ -1,14 +1,11 @@
-<div id='book_search_header'>
-  {if $begin > 0}<a href="Javascript:;" class='prev' onclick="execFilter({math equation="x-y" x=$begin y=$limit});">&lt;&lt;prev</a>{/if}
-  <span style="margin-right: 10px;"><b>{$total}</b> results for "{$query}"</span>
-  <span style=""><b>(Showing {if $begin eq 0 && $end ne 0}1{else}{$begin}{/if}-{$end})</b></span>
-  {if $end < $total}<a href="Javascript:;" onclick="execFilter({$end});" class='next'>next&gt;&gt;</a>{/if}<br>
-</div>
+<span style="margin-right: 10px;"><b>{$total}</b> results for "{$query}"</span>
+<span style=""><b>(Showing {if $begin eq 0 && $end ne 0}1{else}{$begin}{/if}-{$end})</b></span>
+{if $begin > 0}<a href="Javascript:;" onclick="execFilter({math equation="x-y" x=$begin y=$limit});">&lt;&lt;prev</a>{/if}
+{if $end < $total}<a href="Javascript:;" onclick="execFilter({$end});" style="float: right;">next&gt;&gt;</a>{/if}<br>
 <div id="book_list">
-    <table class='table table-striped'>
+    <ul>
     {foreach from=$books item=book}
-        <tr onClick="window.location = '{$uri}/books/edit/{$book.book_id}';">
-          <td>
+        <li id="{$book.book_id}">
             <span style="font-weight: bold;">
                 {$book.title_highlight}
             </span>
@@ -17,8 +14,7 @@
                 <i>By:</i>
                 {$book.authors_highlight}
             </span>
-          </td>
-        </tr>
+        </li>
     {/foreach}
-    </table>
+    </ul>
 </div>

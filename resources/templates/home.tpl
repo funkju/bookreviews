@@ -5,29 +5,32 @@
 {/if}
 <ul class="menu">
     {literal}
-    <li class="menu_item" onclick="showStatus('Loading...',false, function(){goTo(uri+'/books');})"><i class='icon-book'></i>Books
+    <li class="menu_item books" onclick="showStatus('Loading...',false, function(){goTo(uri+'/books');})">Books
     {/literal}
     {if $user.role_id ne $role.REVIEWER}
-        {literal}<li class="menu_item"  onclick="showStatus('Loading...',false, function(){goTo(uri+'/people');})"><i class='icon-user'></i>People{/literal}
+        {literal}<li class="menu_item people"  onclick="showStatus('Loading...',false, function(){goTo(uri+'/people');})">People{/literal}
 
-        {literal}<li class="menu_item"  onclick="showStatus('Loading...',false, function(){goTo(uri+'/distribution');})"><i class='icon-globe'></i>Distribution{/literal}
+        {literal}<li class="menu_item distribution"  onclick="showStatus('Loading...',false, function(){goTo(uri+'/distribution');})">Distribution{/literal}
 
     {else}
         {literal}<li class="menu_item edit_prof" onclick="showStatus('Loading...',false, function(){goTo(uri+'/profile');})">Edit Profile{/literal}
     {/if}
     {literal}
-        <li class="menu_item" onclick="showStatus('Loading...',false,function(){goTo(uri+'/reviews');})"><i class='icon-file'></i>Book Reviews
+        <li class="menu_item reviews" onclick="showStatus('Loading...',false,function(){goTo(uri+'/reviews');})">Book Reviews
     {/literal}
 
     {if $user.role_id eq $role.ADMINISTRATOR || $user.role_id eq $role.EDITOR}
     {literal}
-        <li class="menu_item" onclick="showStatus('Loading...',false,function(){goTo(uri+'/mailing');})"><i class='icon-inbox'></i>Mailing
+	<li class="menu_item submitted" onclick="showStatus('Loading...',false, function(){goTo(uri+'/submitted');})">Submitted Content
     {/literal}
     {literal}
-        <li class="menu_item" onclick="showStatus('Loading...',false,function(){goTo(uri+'/reports');})"><i class='icon-signal'></i>Reports
+        <li class="menu_item mailing" onclick="showStatus('Loading...',false,function(){goTo(uri+'/mailing');})">Mailing
+    {/literal}
+    {literal}
+        <li class="menu_item reports" onclick="showStatus('Loading...',false,function(){goTo(uri+'/reports');})">Reports
     {/literal}
     {/if} 
     {literal}
-        <li class="menu_item" onclick="showStatus('Loading...',false,function(){goTo(uri+'/forms');})"><i class='icon-folder-open'></i>Forms
+        <li class="menu_item forms" onclick="showStatus('Loading...',false,function(){goTo(uri+'/forms');})">Forms
     {/literal}
 </ul>

@@ -17,7 +17,7 @@ input.disabled, select.disabled, textarea.disabled {
     position: absolute;
     top: -10px;
     right: -20px;
-    width: 155px;
+    width: 200px;
 }
 #people_top_right ul {
     list-style: none;
@@ -39,6 +39,10 @@ input.disabled, select.disabled, textarea.disabled {
 }
 #people_del {
     background: url(../images/Function_Icon/cancel_16.png) no-repeat scroll left 0 transparent;
+}
+#people_ae_list {
+    padding-left: 19px !important;
+    background: url(../images/icons/group_go.png) no-repeat scroll left 0 transparent;
 }
 
 

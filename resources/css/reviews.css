@@ -23,6 +23,8 @@
 }
 #reviews_actions > ul > li, #reviews_by_issue_actions > ul > li {
     cursor: pointer;
+    padding-left: 18px;
+    padding-right: 10px;
     text-decoration: underline;
 }
 #reviews_actions  li:hover, #reviews_by_issue_actions li {
@@ -36,8 +38,8 @@
     background: url(../images/Function_Icon/add_16.png) no-repeat scroll left 0 transparent;
 }
 #review_delete {
+    background: url(../images/Function_Icon/cancel_16.png) no-repeat scroll left 0 transparent;
 }
-
 #reviews_pending {
     background: url(../images/icons/cog.png) no-repeat scroll left 0 transparent;
 }
@@ -55,6 +57,9 @@ li#order_to_publish {
 }
 li#author_info {
 		background: url(../images/page_paintbrush.png) no-repeat scroll left 0 transparent;
+}
+li#reviews_do_not_review {
+        background: url(../images/icons/book_delete.png) no-repeat scroll left 0 transparent;
 }
 
 
@@ -111,7 +116,34 @@ div.button {
 }
 
 #book_review__title {
-    width: 90%;
+    width: 590px;
+    margin-bottom: 5px;
+}
+
+/*--- Assoc Editor Section ---*/
+/*----------------------------*/
+#assoc_editor_section {
+    float: left;
+    width: 50%;
+    margin-bottom: 30px;
+}
+#book_review__assoc_editor_id {
+    width: 185px;
+    margin-bottom: 5px;
+}
+
+
+
+/*--- Reviewer Section ---*/
+/*------------------------*/
+#reviewer_section {
+    float: left;
+    width: 50%;
+    margin-bottom: 65px;
+}
+#book_review__reviewer_id {
+    width: 185px;
+    margin-bottom: 5px;
 }
 
 /*--- Attachment Section ---*/
@@ -158,6 +190,10 @@ img.delete_attach {
 
 /*--- Review Section ---*/
 /*----------------------*/
+#review_section {
+    float: left;
+    width: 600px;
+}
 label#book_review_date_promised, label#book_review_date_recd {
     width: 143px;
 }
@@ -217,6 +253,16 @@ textarea.reviews {
 /*---------------*/
 #review_buttons {
     clear: left;
+}
+div#edit_book_button {
+    font-size: 11px;
+    margin: 4px 0px 0px 0px;
+    padding: 1px;
+}
+div#view_ae_details_button, div#view_reviewer_details_button {
+    font-size: 11px;
+    margin: 5px 0 0;
+    padding: 1px;
 }
 
 

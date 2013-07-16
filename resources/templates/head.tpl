@@ -2,8 +2,8 @@
 <META http-equiv="Content-Style-Type" content="text/css">
 
 
+<link rel="stylesheet" type="text/css" href="{$uri}/resources/css/amstat.min.css?{$smarty.now}">
 <link rel="stylesheet" type="text/css" href="{$uri}/resources/css/main.css?{$smarty.now}">
-<link rel="stylesheet" type="text/css" href="{$uri}/resources/css/bootstrap.min.css?{$smarty.now}">
 <link rel="stylesheet" type="text/css" href="{$uri}/resources/css/jquery/jquery-ui.min.css?{$smarty.now}">
 <link rel="stylesheet" type="text/css" media="screen" href="{$uri}/resources/css/jqGrid/ui.jqgrid.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="{$uri}/resources/css/jquery/jquery-autocomplete/jquery.autocomplete.css" />
@@ -19,6 +19,13 @@
     var server_name = "{$server_name}";
 </script>
 
+{literal}
+<style type="text/css">
+a.tex { background: url("{/literal}{$uri}{literal}/resources/images/tex-icon.png") no-repeat; padding-left: 20px;}
+a.pdf { background: url("{/literal}{$uri}{literal}/resources/images/pdf-icon.png") no-repeat; padding-left: 20px;}
+</style>
+{/literal}
+
 
 <script type="text/javascript" src="{$uri}/resources/js/jquery.js?{$smarty.now}"></script>
 <script type="text/javascript" src="{$uri}/resources/js/jquery-ui.js?{$smarty.now}"></script>
@@ -32,7 +39,6 @@
 <script type="text/javascript" src="{$uri}/resources/js/{$type}.js"></script>
   
 <script type="text/javascript" src="{$uri}/resources/js/procReturn.min.js?{$smarty.now}"></script>
-<script type="text/javascript" src="{$uri}/resources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{$uri}/resources/js/main.min.js?{$smarty.now}"></script>
 
 

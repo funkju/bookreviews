@@ -1,4 +1,6 @@
+
 <div id="people_content">
+    {if !$aes}
     <div id="people_left">
        <label for="people_filter" id="people_filter_label">Find Person</label><br>
        <input type="text" name="people_filter" id="people_filter">
@@ -13,6 +15,7 @@
     <div id="people_top_right">
         <ul>
             {if $user.role_id eq $role.ADMINISTRATOR || $user.role_id eq $role.EDITOR}
+            <li id="people_ae_list">Get AE List</li>
             <li id="people_add">Add New</li>
             {/if}
         </ul>
@@ -21,7 +24,9 @@
     <div id="people_center">
         {include file="person_form.tpl"}
     </div>
-
+    {else}
+        {include file="ae_list.tpl"}
+    {/if}
 </div>
 
 
@@ -32,9 +37,13 @@
 
 
             $("#people_add").bind('click', addPerson);
+            $("#people_ae_list").bind('click', {literal}function(){
+                window.location = uri+"/people/AEList/";
+            });{/literal}
     
     {/if}
 
     $("#people_filter").bind('keyup', filterPerson);
 
 </script>
+

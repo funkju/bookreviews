@@ -27,6 +27,7 @@
             <th></th>
             <th>Title</th>
             <th>Authors</th>
+            <th>Year</th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +36,7 @@
             <td class="check">  <input type="checkbox" {if !$distribution_list || $book.selected}checked{/if}></td>
             <td class="title">  {$book.title}</td>
             <td class="authors">{$book.authors}</td>
+            <td class="Year">{$book.year}</td>
         </tr>
 {foreachelse}
         <tr>

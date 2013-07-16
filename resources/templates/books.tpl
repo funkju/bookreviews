@@ -9,15 +9,16 @@
 <div id="book_content">
     {if !isset($books_to_assign)}
     <div id="book_top">
+       <label for="book_filter" id="book_filter_label">Find Book</label><br>
        <input type="text" name="book_search" id="book_search" {if $query}value="{$query.query}"{/if}>
-       <div id="book_search_button" class="btn btn-primary btn-large">Search</div>
+       <div id="book_search_button" class="button">Search</div>
     </div>
     <div id="book_buttons">
         <ul>
             {if $admin_or_editor}
-                <li id="book_add"><i class='icon-plus-sign'></i>Add New Book</li>
-                <li id="book_del" style="display:{if isset($books_to_assign) || !$book}none{/if};"><i class='icon-trash'></i>Delete</li>
-                <li id="assign_rev"><i class='icon-random'></i>Assign Reviews</li>
+                <li id="book_add">Add New Book</li>
+                <li id="book_del" style="display:{if isset($books_to_assign) || !$book}none{/if};">Delete</li>
+                <li id="assign_rev">Assign Reviews</li>
             {/if}
         </ul>
     </div>
