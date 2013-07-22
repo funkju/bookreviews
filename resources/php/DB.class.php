@@ -178,6 +178,7 @@ class DB {
         $sql = "SELECT $selectString FROM {$this->table}";
         if($whereString) $sql .= " WHERE $whereString";
         
+
         if(isset($options['GROUP'])){
             $sql .= " GROUP BY ".$options['GROUP'];
         }

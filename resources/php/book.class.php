@@ -5,8 +5,6 @@ require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/journal.class.php");
 require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/review_type.class.php");
 require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/book_review.class.php");
 
-require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/table.class.php");
-require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/DB.class.php");
 
 class Book extends Table {
 

@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/BookReviews.class.php");
+//    require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/BookReviews.class.php");
     require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/stamps.com/nusoap.php");
 
     //@TODO WRITE TESTER

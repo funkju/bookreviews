@@ -1,8 +1,5 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/table.class.php");
-require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/DB.class.php");
-
 class Address extends Table {
 
     protected $table = "address";

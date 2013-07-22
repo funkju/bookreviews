@@ -19295,3 +19295,302 @@ Time and again, where Yau has gone, physics has followed. Now for the first time
 2012/08/08 10:19:45, 127.0.0.1, BookReviews::svcRead, 124, funkju, Creating Object
 2012/08/08 10:19:46, 127.0.0.1, BookReviews::svcRead, 124, funkju, address
 2012/08/08 10:19:46, 127.0.0.1, BookReviews::svcRead, 124, funkju, Creating Object
+2013/06/17 17:16:32, 127.0.0.1, BookReviews::doLogin, 152, , Someone trying to log in.
+2013/06/17 17:16:39, 127.0.0.1, BookReviews::doLogin, 152, , Found a user
+2013/06/17 17:16:42, 127.0.0.1, BookReviews::doLogin, 152, funkju, Created Person Object
+2013/06/17 17:16:43, 127.0.0.1, BookReviews::hub, 36, funkju, Going to home
+2013/06/17 17:16:49, 127.0.0.1, BookReviews::doLogin, 152, funkju, Someone trying to log in.
+2013/06/17 17:16:51, 127.0.0.1, BookReviews::doLogin, 152, funkju, Found a user
+2013/06/17 17:16:52, 127.0.0.1, BookReviews::doLogin, 152, funkju, Created Person Object
+2013/06/17 17:16:52, 127.0.0.1, BookReviews::hub, 36, funkju, Going to home
+2013/06/17 17:17:43, 127.0.0.1, BookReviews::hub, 36, funkju, Going to home
+2013/06/17 17:19:09, 127.0.0.1, BookReviews::hub, 36, funkju, Going to home
+2013/06/17 17:20:39, 127.0.0.1, BookReviews::hub, 36, funkju, Going to home
+2013/06/17 17:20:45, 127.0.0.1, BookReviews::hub, 36, funkju, Going to books
+2013/06/17 17:21:09, 127.0.0.1, BookReviews::hub, 36, funkju, Going to home
+2013/06/17 17:21:33, 127.0.0.1, BookReviews::hub, 36, funkju, User Logging Out
+2013/06/17 17:39:54, 127.0.0.1, BookReviews::doLogin, 152, , Someone trying to log in.
+2013/06/17 17:39:54, 127.0.0.1, BookReviews::doLogin, 152, , Authorization Failed (funkju).
+2013/06/17 17:50:55, 127.0.0.1, BookReviews::doLogin, 152, , Someone trying to log in.
+2013/06/17 17:50:55, 127.0.0.1, BookReviews::doLogin, 152, , Found a user
+2013/06/17 17:50:55, 127.0.0.1, BookReviews::doLogin, 152, funkju, Created Person Object
+2013/06/17 17:50:56, 127.0.0.1, BookReviews::hub, 36, funkju, Going to home
+2013/06/17 17:50:58, 127.0.0.1, BookReviews::hub, 36, funkju, User Logging Out
+2013/06/17 17:51:08, 127.0.0.1, BookReviews::doLogin, 152, , Someone trying to log in.
+2013/06/17 17:51:09, 127.0.0.1, BookReviews::doLogin, 152, , Authorization Failed (username).
+2013/07/08 23:38:38, 127.0.0.1, BookReviews::doLogin, 152, , Someone trying to log in.
+2013/07/08 23:38:38, 127.0.0.1, BookReviews::doLogin, 152, , Authorization Failed (funkju@gmail.com).
+2013/07/08 23:38:45, 127.0.0.1, BookReviews::doLogin, 152, , Someone trying to log in.
+2013/07/08 23:38:45, 127.0.0.1, BookReviews::doLogin, 152, , Found a user
+2013/07/08 23:38:45, 127.0.0.1, BookReviews::doLogin, 152, funkju, Created Person Object
+2013/07/08 23:38:45, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/08 23:38:49, 127.0.0.1, BookReviews::hub, 37, funkju, User Logging Out
+2013/07/11 18:35:26, 127.0.0.1, BookReviews::doLogin, 152, , Someone trying to log in.
+2013/07/11 18:35:34, 127.0.0.1, BookReviews::doLogin, 152, , Authorization Failed (username).
+2013/07/12 00:40:25, 127.0.0.1, BookReviews::doLogin, 152, , Someone trying to log in.
+2013/07/12 00:40:27, 127.0.0.1, BookReviews::doLogin, 152, , Found a user
+2013/07/12 00:40:27, 127.0.0.1, BookReviews::doLogin, 152, funkju, Created Person Object
+2013/07/12 00:40:27, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/12 00:40:28, 127.0.0.1, BookReviews::doLogin, 152, funkju, Someone trying to log in.
+2013/07/12 00:40:29, 127.0.0.1, BookReviews::doLogin, 152, funkju, Found a user
+2013/07/12 00:40:29, 127.0.0.1, BookReviews::doLogin, 152, funkju, Created Person Object
+2013/07/12 00:40:29, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/12 00:40:32, 127.0.0.1, BookReviews::hub, 37, funkju, User Logging Out
+2013/07/15 16:06:10, 127.0.0.1, BookReviews::hub, 37, , Going to home
+2013/07/15 16:25:38, 127.0.0.1, BookReviews::submitContent, 160, , Someone is submitting content.
+2013/07/15 16:25:38, 127.0.0.1, BookReviews::svcCreate, 1412, , Material
+2013/07/15 16:25:38, 127.0.0.1, BookReviews::svcCreate, 1412, , Creating Dynamic Class
+2013/07/15 16:26:11, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 16:26:11, 127.0.0.1, BookReviews::svcCreate, 1414, , Material
+2013/07/15 16:26:11, 127.0.0.1, BookReviews::svcCreate, 1414, , Creating Dynamic Class
+2013/07/15 16:26:11, 127.0.0.1, BookReviews::svcCreate, 1414, , Creating Object
+2013/07/15 16:28:30, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 16:28:30, 127.0.0.1, BookReviews::svcCreate, 1414, , Material
+2013/07/15 16:28:30, 127.0.0.1, BookReviews::svcCreate, 1414, , Creating Dynamic Class
+2013/07/15 16:28:30, 127.0.0.1, BookReviews::svcCreate, 1414, , Creating Object
+2013/07/15 16:33:17, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 16:33:17, 127.0.0.1, BookReviews::svcCreate, 1414, , Material
+2013/07/15 16:33:17, 127.0.0.1, BookReviews::svcCreate, 1414, , Creating Dynamic Class
+2013/07/15 16:33:17, 127.0.0.1, BookReviews::svcCreate, 1414, , Creating Object
+2013/07/15 18:06:59, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 18:07:14, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 18:07:14, 127.0.0.1, BookReviews::svcCreate, 1421, , Material
+2013/07/15 18:07:14, 127.0.0.1, BookReviews::svcCreate, 1421, , Creating Dynamic Class
+2013/07/15 18:07:14, 127.0.0.1, BookReviews::svcCreate, 1421, , Creating Object
+2013/07/15 18:07:14, 127.0.0.1, BookReviews::svcCreate, 1421, , Loading created object
+2013/07/15 18:08:51, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 18:08:51, 127.0.0.1, BookReviews::svcCreate, 1425, , Material
+2013/07/15 18:08:51, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Dynamic Class
+2013/07/15 18:08:51, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Object
+2013/07/15 18:08:51, 127.0.0.1, BookReviews::svcCreate, 1425, , Loading created object
+2013/07/15 18:32:44, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 18:32:44, 127.0.0.1, BookReviews::svcCreate, 1425, , Material
+2013/07/15 18:32:44, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Dynamic Class
+2013/07/15 18:32:44, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Object
+2013/07/15 18:32:44, 127.0.0.1, BookReviews::svcCreate, 1425, , Loading created object
+2013/07/15 18:33:13, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 18:33:13, 127.0.0.1, BookReviews::svcCreate, 1425, , Material
+2013/07/15 18:33:13, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Dynamic Class
+2013/07/15 18:33:13, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Object
+2013/07/15 18:47:55, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 18:47:55, 127.0.0.1, BookReviews::svcCreate, 1425, , Material
+2013/07/15 18:47:55, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Dynamic Class
+2013/07/15 18:47:55, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Object
+2013/07/15 18:47:55, 127.0.0.1, BookReviews::svcCreate, 1425, , Loading created object
+2013/07/15 18:49:10, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 18:49:11, 127.0.0.1, BookReviews::svcCreate, 1425, , Material
+2013/07/15 18:49:11, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Dynamic Class
+2013/07/15 18:49:11, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Object
+2013/07/15 18:49:11, 127.0.0.1, BookReviews::svcCreate, 1425, , Loading created object
+2013/07/15 18:51:29, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 18:51:29, 127.0.0.1, BookReviews::svcCreate, 1425, , Material
+2013/07/15 18:51:29, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Dynamic Class
+2013/07/15 18:51:29, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Object
+2013/07/15 18:51:29, 127.0.0.1, BookReviews::svcCreate, 1425, , Loading created object
+2013/07/15 18:54:53, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 18:54:53, 127.0.0.1, BookReviews::svcCreate, 1425, , Material
+2013/07/15 18:54:53, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Dynamic Class
+2013/07/15 18:54:53, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Object
+2013/07/15 18:54:53, 127.0.0.1, BookReviews::svcCreate, 1425, , Loading created object
+2013/07/15 18:54:56, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 18:54:56, 127.0.0.1, BookReviews::svcCreate, 1425, , Material
+2013/07/15 18:54:56, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Dynamic Class
+2013/07/15 18:54:56, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Object
+2013/07/15 18:54:56, 127.0.0.1, BookReviews::svcCreate, 1425, , Loading created object
+2013/07/15 18:55:31, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 18:55:31, 127.0.0.1, BookReviews::svcCreate, 1425, , Material
+2013/07/15 18:55:31, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Dynamic Class
+2013/07/15 18:55:31, 127.0.0.1, BookReviews::svcCreate, 1425, , Creating Object
+2013/07/15 18:55:31, 127.0.0.1, BookReviews::svcCreate, 1425, , Loading created object
+2013/07/15 19:03:10, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:03:10, 127.0.0.1, BookReviews::svcCreate, 1426, , Material
+2013/07/15 19:03:10, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Dynamic Class
+2013/07/15 19:03:10, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Object
+2013/07/15 19:03:10, 127.0.0.1, BookReviews::svcCreate, 1426, , Loading created object
+2013/07/15 19:03:32, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:03:32, 127.0.0.1, BookReviews::svcCreate, 1426, , Material
+2013/07/15 19:03:32, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Dynamic Class
+2013/07/15 19:03:32, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Object
+2013/07/15 19:03:32, 127.0.0.1, BookReviews::svcCreate, 1426, , Loading created object
+2013/07/15 19:03:52, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:03:52, 127.0.0.1, BookReviews::svcCreate, 1426, , Material
+2013/07/15 19:03:52, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Dynamic Class
+2013/07/15 19:03:52, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Object
+2013/07/15 19:03:52, 127.0.0.1, BookReviews::svcCreate, 1426, , Loading created object
+2013/07/15 19:06:52, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:06:52, 127.0.0.1, BookReviews::svcCreate, 1426, , Material
+2013/07/15 19:06:52, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Dynamic Class
+2013/07/15 19:06:52, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Object
+2013/07/15 19:06:52, 127.0.0.1, BookReviews::svcCreate, 1426, , Loading created object
+2013/07/15 19:07:03, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:07:03, 127.0.0.1, BookReviews::svcCreate, 1426, , Material
+2013/07/15 19:07:03, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Dynamic Class
+2013/07/15 19:07:03, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Object
+2013/07/15 19:07:03, 127.0.0.1, BookReviews::svcCreate, 1426, , Loading created object
+2013/07/15 19:08:55, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:08:55, 127.0.0.1, BookReviews::svcCreate, 1426, , Material
+2013/07/15 19:08:55, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Dynamic Class
+2013/07/15 19:08:55, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Object
+2013/07/15 19:08:55, 127.0.0.1, BookReviews::svcCreate, 1426, , Loading created object
+2013/07/15 19:09:12, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:09:12, 127.0.0.1, BookReviews::svcCreate, 1426, , Material
+2013/07/15 19:09:12, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Dynamic Class
+2013/07/15 19:09:12, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Object
+2013/07/15 19:09:12, 127.0.0.1, BookReviews::svcCreate, 1426, , Loading created object
+2013/07/15 19:09:38, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:09:38, 127.0.0.1, BookReviews::svcCreate, 1426, , Material
+2013/07/15 19:09:38, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Dynamic Class
+2013/07/15 19:09:38, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Object
+2013/07/15 19:09:38, 127.0.0.1, BookReviews::svcCreate, 1426, , Loading created object
+2013/07/15 19:09:51, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:09:51, 127.0.0.1, BookReviews::svcCreate, 1426, , Material
+2013/07/15 19:09:51, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Dynamic Class
+2013/07/15 19:09:51, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Object
+2013/07/15 19:09:51, 127.0.0.1, BookReviews::svcCreate, 1426, , Loading created object
+2013/07/15 19:10:05, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:10:05, 127.0.0.1, BookReviews::svcCreate, 1426, , Material
+2013/07/15 19:10:05, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Dynamic Class
+2013/07/15 19:10:05, 127.0.0.1, BookReviews::svcCreate, 1426, , Creating Object
+2013/07/15 19:10:05, 127.0.0.1, BookReviews::svcCreate, 1426, , Loading created object
+2013/07/15 19:17:43, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:17:43, 127.0.0.1, BookReviews::svcCreate, 1429, , Material
+2013/07/15 19:17:43, 127.0.0.1, BookReviews::svcCreate, 1429, , Creating Dynamic Class
+2013/07/15 19:17:43, 127.0.0.1, BookReviews::svcCreate, 1429, , Creating Object
+2013/07/15 19:17:52, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:17:52, 127.0.0.1, BookReviews::svcCreate, 1429, , Material
+2013/07/15 19:17:52, 127.0.0.1, BookReviews::svcCreate, 1429, , Creating Dynamic Class
+2013/07/15 19:17:52, 127.0.0.1, BookReviews::svcCreate, 1429, , Creating Object
+2013/07/15 19:18:22, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:18:22, 127.0.0.1, BookReviews::svcCreate, 1432, , Material
+2013/07/15 19:18:22, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Dynamic Class
+2013/07/15 19:18:22, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Object
+2013/07/15 19:19:14, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:19:44, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:20:19, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:20:57, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:21:05, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:21:05, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:21:09, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:21:12, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:21:16, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:21:16, 127.0.0.1, BookReviews::svcCreate, 1433, , Material
+2013/07/15 19:21:16, 127.0.0.1, BookReviews::svcCreate, 1433, , Creating Dynamic Class
+2013/07/15 19:21:16, 127.0.0.1, BookReviews::svcCreate, 1433, , Creating Object
+2013/07/15 19:21:16, 127.0.0.1, BookReviews::svcCreate, 1433, , Loading created object
+2013/07/15 19:21:44, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:23:42, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:23:42, 127.0.0.1, BookReviews::svcCreate, 1432, , Material
+2013/07/15 19:23:42, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Dynamic Class
+2013/07/15 19:23:42, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Object
+2013/07/15 19:23:42, 127.0.0.1, BookReviews::svcCreate, 1432, , Loading created object
+2013/07/15 19:25:33, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:25:33, 127.0.0.1, BookReviews::svcCreate, 1432, , Material
+2013/07/15 19:25:33, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Dynamic Class
+2013/07/15 19:25:33, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Object
+2013/07/15 19:25:33, 127.0.0.1, BookReviews::svcCreate, 1432, , Loading created object
+2013/07/15 19:26:59, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:26:59, 127.0.0.1, BookReviews::svcCreate, 1432, , Material
+2013/07/15 19:26:59, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Dynamic Class
+2013/07/15 19:26:59, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Object
+2013/07/15 19:26:59, 127.0.0.1, BookReviews::svcCreate, 1432, , Loading created object
+2013/07/15 19:28:33, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:28:33, 127.0.0.1, BookReviews::svcCreate, 1432, , Material
+2013/07/15 19:28:33, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Dynamic Class
+2013/07/15 19:28:33, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Object
+2013/07/15 19:28:33, 127.0.0.1, BookReviews::svcCreate, 1432, , Loading created object
+2013/07/15 19:29:39, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:29:48, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:29:48, 127.0.0.1, BookReviews::svcCreate, 1432, , Material
+2013/07/15 19:29:48, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Dynamic Class
+2013/07/15 19:29:48, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Object
+2013/07/15 19:29:49, 127.0.0.1, BookReviews::svcCreate, 1432, , Loading created object
+2013/07/15 19:31:24, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:31:36, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:31:47, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 19:31:47, 127.0.0.1, BookReviews::svcCreate, 1432, , Material
+2013/07/15 19:31:47, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Dynamic Class
+2013/07/15 19:31:47, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Object
+2013/07/15 19:31:47, 127.0.0.1, BookReviews::svcCreate, 1432, , Loading created object
+2013/07/15 20:23:08, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 20:23:08, 127.0.0.1, BookReviews::svcCreate, 1432, , Material
+2013/07/15 20:23:08, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Dynamic Class
+2013/07/15 20:23:08, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Object
+2013/07/15 20:23:08, 127.0.0.1, BookReviews::svcCreate, 1432, , Loading created object
+2013/07/15 20:25:23, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 20:25:23, 127.0.0.1, BookReviews::svcCreate, 1432, , Material
+2013/07/15 20:25:23, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Dynamic Class
+2013/07/15 20:25:23, 127.0.0.1, BookReviews::svcCreate, 1432, , Creating Object
+2013/07/15 20:25:23, 127.0.0.1, BookReviews::svcCreate, 1432, , Loading created object
+2013/07/15 20:27:38, 127.0.0.1, BookReviews::doLogin, 154, , Someone trying to log in.
+2013/07/15 20:27:38, 127.0.0.1, BookReviews::doLogin, 154, , Found a user
+2013/07/15 20:27:38, 127.0.0.1, BookReviews::doLogin, 154, funkju, Created Person Object
+2013/07/15 20:27:38, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:33:45, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:35:04, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:43:59, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:46:41, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:46:43, 127.0.0.1, BookReviews::hub, 37, funkju, Going to people
+2013/07/15 20:46:46, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:47:14, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:47:16, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:47:46, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:47:48, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:48:31, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:48:33, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:48:37, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:48:58, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:49:00, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:51:27, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:51:39, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:53:13, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:53:29, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:53:38, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:55:35, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:55:53, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:56:09, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:56:16, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:56:19, 127.0.0.1, BookReviews::hub, 37, funkju, User Logging Out
+2013/07/15 20:56:46, 127.0.0.1, BookReviews::submitContent, 162, , Someone is submitting content.
+2013/07/15 20:56:46, 127.0.0.1, BookReviews::svcCreate, 1451, , Material
+2013/07/15 20:56:46, 127.0.0.1, BookReviews::svcCreate, 1451, , Creating Dynamic Class
+2013/07/15 20:56:46, 127.0.0.1, BookReviews::svcCreate, 1451, , Creating Object
+2013/07/15 20:56:46, 127.0.0.1, BookReviews::svcCreate, 1451, , Loading created object
+2013/07/15 20:56:57, 127.0.0.1, BookReviews::doLogin, 154, , Someone trying to log in.
+2013/07/15 20:56:57, 127.0.0.1, BookReviews::doLogin, 154, , Found a user
+2013/07/15 20:56:57, 127.0.0.1, BookReviews::doLogin, 154, funkju, Created Person Object
+2013/07/15 20:56:57, 127.0.0.1, BookReviews::hub, 37, funkju, Going to home
+2013/07/15 20:56:59, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:57:17, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:57:30, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/15 20:58:29, 127.0.0.1, BookReviews::hub, 37, funkju, Going to submitted
+2013/07/16 16:19:31, 127.0.0.1, BookReviews::doLogin, 154, , Someone trying to log in.
+2013/07/16 16:19:32, 127.0.0.1, BookReviews::doLogin, 154, , Found a user
+2013/07/16 16:19:32, 127.0.0.1, BookReviews::doLogin, 154, funkju, Created Person Object
+2013/07/16 16:19:32, 127.0.0.1, BookReviews::hub, 36, funkju, Going to home
+2013/07/16 16:20:45, 127.0.0.1, BookReviews::hub, 36, funkju, Going to distribution.
+2013/07/16 16:22:41, 127.0.0.1, BookReviews::svcCall, 145, funkju, Calling DistributionList::create from svcCall
+2013/07/16 16:22:50, 127.0.0.1, BookReviews::svcCall, 145, funkju, Calling DistributionList::create from svcCall
+2013/07/16 16:23:26, 127.0.0.1, BookReviews::svcCall, 145, funkju, Calling DistributionList::create from svcCall
+2013/07/16 16:24:39, 127.0.0.1, BookReviews::svcCall, 145, funkju, Calling DistributionList::create from svcCall
+2013/07/16 16:24:40, 127.0.0.1, BookReviews::hub, 36, funkju, Going to distribution.
+2013/07/18 23:22:06, 127.0.0.1, BookReviews::doLogin, 154, , Someone trying to log in.
+2013/07/18 23:22:07, 127.0.0.1, BookReviews::doLogin, 154, , Found a user
+2013/07/18 23:22:07, 127.0.0.1, BookReviews::doLogin, 154, funkju, Created Person Object
+2013/07/18 23:22:07, 127.0.0.1, BookReviews::hub, 36, funkju, Going to home
+2013/07/18 23:22:10, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:23:15, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:23:40, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:24:17, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:26:06, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:26:49, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:27:34, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:33:10, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:34:08, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:34:28, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:35:10, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:40:17, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:43:38, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:50:13, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:50:17, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:50:50, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted
+2013/07/18 23:52:52, 127.0.0.1, BookReviews::hub, 36, funkju, Going to submitted

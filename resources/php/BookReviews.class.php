@@ -370,7 +370,10 @@
 
 				//Get submitted content
 				$m = new Material();
-				$this->ds->mats = $m->find(array(array('screen_status','=',Material::UNDECIDED)));
+				$ms = $m->find(array(array('screen_status','=',Material::UNDECIDED)));
+				$mats = array();
+				foreach($ms as $m) $mats[] = $m->getRecord();
+				$this->ds->mats  = $mats;
 			
 			}
 			break;

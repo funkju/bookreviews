@@ -49,6 +49,6 @@ This form allows you to submit an self-published and web-based resources to be r
 <div class='button' onClick='submitContent();'>Submit Content</div>
 </form>
 <div id="submit-thanks">
-	<b>Thank you for submitting....Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b><br><br>
+	<b>Thank you for submitting....Some text informing the submitter about next steps.</b><br><br>
 	<div class='button' onClick='resetSubmitContent();'>Submit Another</div>
 </div>

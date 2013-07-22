@@ -1,6 +1,4 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/BookReviews.class.php");
-require_once($_SERVER['DOCUMENT_ROOT'].URI."/resources/php/DB.class.php");
 
 class Table {
 
@@ -250,7 +248,7 @@ class Table {
      */
     function create($vals) {
         if(!$this->can('create',$vals)){
-            throw new Exception("Permission denied deleting from $this->table");
+            throw new Exception("Permission denied creating in $this->table");
         }
             
 

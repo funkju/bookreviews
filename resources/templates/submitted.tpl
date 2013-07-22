@@ -7,16 +7,20 @@
 
 
 <div id="submitted_content">
-    <div id="submitted_center" style="{if isset($books_to_assign)}width:750px;{/if}">
-       	{foreach from=$mats item=i}
-		{$i}
-
-	{/foreach}
-
-	<div id="submitted_list" style="display: none;">
+   <div id="submitted_left">
+       <label for="submitted_filter" id="submitted_filter_label">Find Content</label><br>
+       <input type="text" name="submitted_filter" id="submitted_filter">
+       <br /><br />
+	<div id="submitted_list">
           <ul>
+       		{foreach from=$mats item=i}
+			<li>{$i.title} - {$i.author_name}</li>
+		{/foreach}
           </ul>
        </div>
+    </div>
+    <div id="submitted_center">
+        {include file="submitted_form.tpl"}
     </div>
 </div>
 

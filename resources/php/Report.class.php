@@ -1,7 +1,5 @@
 <?php
 
-  include_once("resources/php/DB.class.php");
-
   class Report {
 
       private $db;
