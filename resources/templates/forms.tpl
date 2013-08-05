@@ -1,12 +1,15 @@
 <div id="tabs">
 	<ul>
 		<li class='plain'>Forms For...</li>
+		<li><a href="#for-submit">Content Submission</a></li>
 		<li><a href="#for-reviewers">Reviewers</a></li>
 		<li><a href="#for-aes">Associate Editors</a></li>
-		<li><a href="#for-submit">Content Submission</a></li>
 		<li class='plain2'> -- Or -- </li>
 		<li><a href="#for-login">Login</a></li>
 	</ul>
+	<div id="for-submit">
+		{include file='self_submit.tpl'}
+	</div>
 	<div id="for-reviewers">
 		<ul>
 		    <li><a href="{$uri}/resources/forms/review_template.tex">LaTex Review Template</a>
@@ -23,9 +26,6 @@
 		     <li><a href="{$uri}/resources/forms/ae_areas_interest.pdf">AE Areas of Interest</a>-->
 		    <li><a href="{$uri}/resources/forms/ae_process_guide.pdf">AE Process Guide</a> 
 		</ul>
-	</div>
-	<div id="for-submit">
-		{include file='self_submit.tpl'}
 	</div>
 	<div id="for-login">
 		<form name="login" action="{$uri}/svc/doLogin" method="post" >

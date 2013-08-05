@@ -171,11 +171,11 @@
                     case "home":
                         $logger->log("Going to home",Logger::DEBUG);
 
-												if($this->user['role_id'] == Role::ADMINISTRATOR || $this->user['role_id'] == Role::EDITOR){
-													$bra = new BookReviewAttachment();
-													$new = $bra->newAttachmentsSince($this->user['previous_login']);
-													$this->ds->num_new_attachments = count($new);
-												}
+						if($this->user['role_id'] == Role::ADMINISTRATOR || $this->user['role_id'] == Role::EDITOR){
+							$bra = new BookReviewAttachment();
+							$new = $bra->newAttachmentsSince($this->user['previous_login']);
+							$this->ds->num_new_attachments = count($new);
+						}
 
 
                         $this->ds->type = "home";
@@ -359,24 +359,38 @@
 
 		    //Show Submitted Page
 		    case "submitted":
-			array_shift($params);
+    			array_shift($params);
 
-			if(!isset($params[0])){
-				$logger->log("Going to submitted", Logger::DEBUG);
-				if(isset($_GET['query'])){
-					$this->ds->query = $_GET;
-				}	
-				$this->ds->type = "submitted";
+    			if(!isset($params[0])){
+    				$logger->log("Going to submitted", Logger::DEBUG);
+    				if(isset($_GET['query'])){
+    					$this->ds->query = $_GET;
+    				}	
+    				$this->ds->type = "submitted";
 
-				//Get submitted content
-				$m = new Material();
-				$ms = $m->find(array(array('screen_status','=',Material::UNDECIDED)));
-				$mats = array();
-				foreach($ms as $m) $mats[] = $m->getRecord();
-				$this->ds->mats  = $mats;
-			
-			}
-			break;
+    				//Get submitted content
+    				$m = new Material();
+    				$ms = $m->find(array(array('screen_status','=',Material::UNDECIDED)));
+    				$mats = array();
+    				foreach($ms as $m) $mats[] = $m->getRecord();
+    				$this->ds->mats  = $mats;
+
+
+    			
+    			} else {
+                        switch($params[0]){
+                                //Load the person form for a person_id
+                                case "loadMaterial":
+                                    $mat = new Material($_GET['material_id']);
+                                    if($mat){
+                                        print $mat->getMaterialForm();
+                                    }
+                                    exit;
+                                    break;
+
+                        }
+                }
+    			break;
 
                     //Show BOOKS Page
                     case "books":
@@ -997,7 +1011,9 @@
                                 $books = array();
                                 foreach($dlbs as $dlb){
                                     $b = new Book($dlb['book_id']);
-                                    $books[] = $b->getRecord();
+                                    $br = $b->getRecord();
+                                    $br['book_or_material'] = $dlb['book_or_material'];
+                                    $books[] = $br;
                                 }
 
                                 //Get Ranks for this List
@@ -1076,13 +1092,21 @@
                                         $dlbs = $dlb->find(array(array('distribution_list_id',$dl->distribution_list_id)), null,false);
                                         $books = array();
                                         foreach($dlbs as $dlb){
-                                            $b = new Book($dlb['book_id']);
-                                            $b = $b->getRecord();
-                                            $b['selected'] = 1;
+                                            if($dlb['book_or_material'] == 0 ){
+                                                $b = new Book($dlb['book_id']);
+                                                $b = $b->getRecord();
+                                                $b['selected'] = 1;
+                                            } else {
+                                                $b = new Material($dlb['book_id']);
+                                                $b = $b->getRecord();
+                                                $b['selected'] = 1;
+                                            }
                                             $books[] = $b;
                                         }
+                                        
                                         //get Non-Distributed Books
                                         $o_books = Book::getNonDistributed();
+                                        $o_materials = Material::getNonDistributed();
                                         foreach($o_books as $o){
                                             $found = 0;
                                             foreach($books as $b) if($b['book_id'] == $o['book_id']) $found = 1;

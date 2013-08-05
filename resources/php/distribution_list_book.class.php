@@ -7,6 +7,9 @@ class DistributionListBook extends Table {
 
     protected $table = "distribution_list_book";
 
+    const BOOK = 0;
+    const MATERIAL = 1;
+
     /**
      * can
      *

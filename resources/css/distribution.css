@@ -80,6 +80,15 @@ div.rank_number {
 #distribution_books_table td.title {
     width: 390px;
 }
+#distribution_books_table td.title span.book {
+    background: transparent url("../images/icons/book.png") left center no-repeat;
+        padding-left: 18px;
+
+}
+#distribution_books_table td.title span.material {
+    background:transparent url("../images/icons/world.png") left center no-repeat;
+    padding-left: 18px;
+}
 #distribution_books_table td.details {
     width: 55px;
 }

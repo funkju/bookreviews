@@ -44,7 +44,7 @@
                                 </select>
                             </td>
                             <td class='title'>
-                                <span style="font-weight: bold;">
+                                <span style="font-weight: bold;" class="{if $book.book_or_material eq 1}material{else}book{/if}">
                                     {$book.title}
                                 </span>
                                 <br>
