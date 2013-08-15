@@ -361,6 +361,18 @@
 		    case "submitted":
     			array_shift($params);
 
+                $this->ds->journals = array(
+                    Journal::JASA => 'JASA',
+                    Journal::TAS => 'TAS'
+                );
+
+                $this->ds->review_types = array(
+                    ReviewType::TELEGRAPHIC => 'Telegraphic',
+                    ReviewType::SHORT       => 'Short',
+                    ReviewType::MEDIUM      => 'Medium',
+                    ReviewType::LONG        => 'Long'
+                );
+
     			if(!isset($params[0])){
     				$logger->log("Going to submitted", Logger::DEBUG);
     				if(isset($_GET['query'])){
@@ -654,7 +666,12 @@
 																										'filename'		   => $_FILES['review_attachment_file']['name']
 																								));
 		
-																								$b = new Book($br['book_id']);
+                                                                                                if($br['book_or_material']){
+																								    $b = new Material($br['book_id']);
+                                                                                                } else {
+                                                                                                    $b = new Book($br['book_id']);
+                                                                                    
+                                                                                                }
 																								$ae = new Person($br['assoc_editor_id']);
 
 																								//Send Notification Email
@@ -680,9 +697,18 @@
 																				} 
 
                                         
-                                        //Add Book details    
-                                        $book = new Book($br['book_id']);
-                                        $book = $book->getRecord();
+                                        //Add Book details
+                                        if($br['book_or_material']){
+                                            $book = new Material($br['book_id']);
+                                            $book = $book->getRecord();
+                                            $book['book_id'] = $book['material_id'];
+                                            $book['authors'] = $book['author_name'];
+                                            $book['book_or_material'] = 1;
+                                        } else {
+                                            $book = new Book($br['book_id']);
+                                            $book = $book->getRecord();
+                                            $book['book_or_material'] = 0;
+                                        }    
                                         $br['book'] = $book;
 
                                         //Add Reviewer Details
@@ -797,8 +823,13 @@
 
                                          //Get book Title
                                          if($b['book_id']){
-                                            $book = new Book($b['book_id']);
-                                            $b['book'] = array('title' => $book->title, 'book_id'=>$book->book_id);
+                                            if($b['book_or_material']) {
+                                                $book = new Material($b['book_id']);
+                                                $b['book'] = array('title' => $book->title, 'book_id'=>$book->material_id, 'book_or_material'=>1);
+                                            } else {
+                                                $book = new Book($b['book_id']);
+                                                $b['book'] = array('title' => $book->title, 'book_id'=>$book->book_id, 'book_or_material'=>0);
+                                            }
                                          } else {
                                             $b['book'] = array('title'=>'','book_id'=>null);
                                          }
@@ -868,8 +899,15 @@
                                     foreach($brs as &$br){
                                         //Fill Book
                                         if($br['book_id']){
-                                            $b = new Book($br['book_id']);
-                                            $br['book'] = $b->getRecord();
+                                            if($br['book_or_material']){
+                                                $b = new Material($br['book_id']);
+                                                $br['book'] = $b->getRecord();
+                                                $br['book']['book_id'] = $b->material_id;
+                                                $br['book']['authors'] = $b->author_name;
+                                            } else {
+                                                $b = new Book($br['book_id']);
+                                                $br['book'] = $b->getRecord();
+                                            }
                                         }
                                         //Fill Review
                                         if($br['assoc_editor_id']){
@@ -948,7 +986,8 @@
                                         'url'  => URI."/reviews"
                                     );
 
-                                    if(!$this->ds->exists('journals')){
+                                    $this->ds->clear('reviews');
+
                                         //Get Journals for combo
                                         $journals = array();
                                         $j = new Journal(Journal::JASA);
@@ -956,8 +995,7 @@
                                         $j = new Journal(Journal::TAS);
                                         $journals[] = $j->getRecord();
                                         $this->ds->journals = $journals;
-                                    }
-
+                                    
 
                                     $this->ds->reviews_type = "reviewsByIssue";
 
@@ -1010,20 +1048,38 @@
                                 $dlbs = $dlb->find(array(array('distribution_list_id',$dl->distribution_list_id)),null, false);
                                 $books = array();
                                 foreach($dlbs as $dlb){
-                                    $b = new Book($dlb['book_id']);
-                                    $br = $b->getRecord();
-                                    $br['book_or_material'] = $dlb['book_or_material'];
-                                    $books[] = $br;
+                                    if($dlb['book_or_material'] == 0){
+                                        $b = new Book($dlb['book_id']);
+                                        $br = $b->getRecord();
+                                        $br['book_or_material'] = 0;
+                                        $books[] = $br;
+                                    } else {
+                                        $m = new Material($dlb['book_id']);
+                                        $br = $m->getRecord();
+                                        $br['book_or_material'] = 1;
+                                        $br['book_id'] = $br['material_id'];
+                                        $br['authors'] = $br['author_name'];
+                                        $books[] = $br;
+
+                                    }
                                 }
 
                                 //Get Ranks for this List
                                 $dlp = new DistributionListPreference();
                                 $ranks = $dlp->getPreferencesByPerson($dl->distribution_list_id, $_SESSION['JR']->user['person_id']);
                                 foreach($ranks as &$r){
-                                    $bk = new Book($r['book_id']);
-                                    $r = array_merge($r,$bk->getRecord());
+                                    if($r['book_or_material']){
+                                     $bk = new Material($r['book_id']);
+                                     $bk = $bk->getRecord();
+                                     $bk['book_id'] = $bk['material_id'];
+                                     $bk['authors'] = $bk['author_name'];
+                                    } else {
+                                     $bk = new Book($r['book_id']);
+                                     $bk = $bk->getRecord();
+                                    }
+                                    $r = array_merge($r,$bk);
 
-                                    if($r['book_marketing_info_id']){
+                                    if(isset($r['book_marketing_info_id']) && $r['book_marketing_info_id']){
                                         $bm = new BookMarketingInfo($r['book_marketing_info_id']);
                                         $r = array_merge($r,$bm->getRecord());
                                     }

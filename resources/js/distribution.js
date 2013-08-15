@@ -4,8 +4,9 @@ function createDistList(){
         var trs = $("#dist_create_table input:checked").parent().parent();
         var book_ids = [];
         for(var i = 0; i< trs.length; i++){
-            book_ids.push(trs[i].id);
+            book_ids.push([trs[i].id,trs[i].className]);
         }
+
 
         var name = $("#dist_name").val();
         var expire = $("#dist_expire").val();

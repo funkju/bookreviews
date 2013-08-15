@@ -16,22 +16,43 @@
     <div id="book_section">
         <h4><label id="book_review_book_id" for="book_id">Book:</label><img style="display: none;" id="title_loading_spinner" src="{$uri}/resources/images/spinner.gif"></h4>
         <div id="book_form">
+            <input type="hidden" id="book_review__book_or_material" class="reviews" value="{$book_review.book_or_material}">
             <input type="hidden" id="book_review__book_id" class="reviews" value="{$book_review.book_id}">
-            <input id="book_review__title" {if !!$n_a_or_e}disabled{/if} value="{$book_review.book.title}" class="reviews">
-						<br>
-						<label id="book_review_book_num">Book #:</label>
-						<span id="book__num" class="book">{$book_review.book.book_num}&nbsp;</span>
-            <br>
-            <label id="book_review_authors">Authors:</label>
-            <span id="book__authors" class="book">{$book_review.book.authors}&nbsp;</span>
-            <br>
-            <label id="book_review_edition_number">Edition Number:</label>
-            <span id="book__edition_number" class="book">{$book_review.book.edition_number}&nbsp;</span>
-            <br>
-            <label id="book_review_year">Year:</label>
-            <span id="book__year" class="book">{$book_review.book.year}&nbsp;</span>
-            <br>
-            <div class="button{if $book_review.book_id}2{else}3{/if}" id="edit_book_button">Details</div>
+
+            {if $book_review.book_or_material}
+                <input id="book_review__title" {if !!$n_a_or_e}disabled{/if} value="{$book_review.book.title}" class="reviews">
+    			<br>
+                <i>Note: This is web-only content.</i>
+                <br> 
+                <label id="book_review_authors">Author:</label>
+                <span id="book__authors" class="book">{$book_review.book.author_name}&nbsp;</span>
+                <br>
+                <label id="book_review_edition_number">URL:</label>
+                <span id="book__material_url" class="book">{$book_review.book.material_url}&nbsp;</span>
+                <br>
+                <label id="book_review_year">Access Instructions:</label>
+                <span id="book__access_inst" class="book">{$book_review.book.access_inst}&nbsp;</span>
+                <br>
+                <label id="book_review_year">Notes:</label>
+                <span id="book__access_inst" class="book">{$book_review.book.notes}&nbsp;</span>
+            {else}
+                <input id="book_review__title" {if !!$n_a_or_e}disabled{/if} value="{$book_review.book.title}" class="reviews">
+                <br>
+                <label id="book_review_book_num">Book #:</label>
+                <span id="book__num" class="book">{$book_review.book.book_num}&nbsp;</span>
+                <br>
+                <label id="book_review_authors">Authors:</label>
+                <span id="book__authors" class="book">{$book_review.book.authors}&nbsp;</span>
+                <br>
+                <label id="book_review_edition_number">Edition Number:</label>
+                <span id="book__edition_number" class="book">{$book_review.book.edition_number}&nbsp;</span>
+                <br>
+                <label id="book_review_year">Year:</label>
+                <span id="book__year" class="book">{$book_review.book.year}&nbsp;</span>
+                <br>
+                <div class="button{if $book_review.book_id}2{else}3{/if}" id="edit_book_button">Details</div>
+
+            {/if}
         </div>
     </div>
     <div id="assoc_editor_section">
@@ -220,6 +241,7 @@
         }
     });
     {/literal}
+
 
     {literal}
     $("#view_reviewer_details_button").bind("click",function(){

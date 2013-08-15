@@ -71,8 +71,8 @@ class DistributionList extends Table {
 
     function create($vars){
     	$name = $vars['name'];
-	$expires = $vars['expires'];
-	$books = $vars['books'];
+	    $expires = $vars['expires'];
+	    $books = $vars['books'];
 
         //Deactivate all distribution lists
         $dl = new DistributionList();
@@ -98,11 +98,20 @@ class DistributionList extends Table {
 
         //Add books to Distribution List
         $dlb = new DistributionListBook();
-        foreach($books as $book_id){
-            $ret = $dlb->create(array(
-                'distribution_list_id' => $dl_id,
-                'book_id'              => $book_id
-            ));
+        foreach($books as $book){
+            if($book[1] == "book"){
+                $ret = $dlb->create(array(
+                    'distribution_list_id' => $dl_id,
+                    'book_id'              => $book[0],
+                    'book_or_material'     => 0
+                ));
+            } else {
+                $ret = $dlb->create(array(
+                    'distribution_list_id' => $dl_id,
+                    'book_id'              => $book[0],
+                    'book_or_material'     => 1
+                ));               
+            }
             if($ret === false) return -1;
         }
 
@@ -192,9 +201,13 @@ class DistributionList extends Table {
 
                 //Get book Title
                 if($b['book_id']){
-                    $book = new Book($b['book_id']);
-                    $b['book'] = array('title' => $book->title, 'book_id'=>$book->book_id);
-                
+                    if($b['book_or_material']){
+                        $book = new Material($b['book_id']);
+                        $b['book'] = array('title' => $book->title, 'book_id'=>$book->material_id);
+                    } else {
+                        $book = new Book($b['book_id']);
+                        $b['book'] = array('title' => $book->title, 'book_id'=>$book->book_id);
+                    }
                     //find rank
                     $dlb = new DistributionListBook();
                     $dlbs = $dlb->find(array(array('book_id',$b['book_id'])));

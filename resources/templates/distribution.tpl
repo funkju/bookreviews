@@ -50,11 +50,11 @@
                                 <br>
                                 <span style="padding-left: 10px;">
                                     <i>By:</i>
-                                    {$book.authors}
+                                    {if $book.book_or_material}{$book.author_name}{else}{$book.authors}{/if}
                                 </span>
                             </td>
                             <td class='details'>
-                                <div class="button" onclick="bookModal({$book.book_id});">Details</div>
+                                <div class="button" onclick="bookModal({$book.book_id}, {if $book.book_or_material}'material'{else}'book'{/if});">Details</div>
                             </td>
                         </tr>
 {/foreach}

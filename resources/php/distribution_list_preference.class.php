@@ -141,11 +141,18 @@ class DistributionListPreference extends Table {
                $a['prefs'] = $dlp->getPreferencesByPerson($distribution_list_id, $a['person_id']);
                foreach($a['prefs'] as &$p){
                    if($p['book_id']){
-                       $b = new Book($p['book_id']);
-                       $p['book'] = $b->getRecord();
+                       if($p['book_or_material']){
+                         $b = new Material($p['book_id']);
+                         $p['book'] = $b->getRecord();
+                         $p['book']['book_id'] = $p['book']['material_id'];
+                         $p['book']['authors'] = $p['book']['author_name'];
+                       } else {
+                         $b = new Book($p['book_id']);
+                         $p['book'] = $b->getRecord();
+                       }
 
                        $br = new BookReview();
-                       $p['book_review'] = $br->find(array(array('book_id',$b->book_id)),null,false);
+                       $p['book_review'] = $br->find(array(array('book_id',$p['book']['book_id'])),null,false);
                    }
                }
             }
@@ -160,10 +167,20 @@ class DistributionListPreference extends Table {
             $dlp = new DistributionListPreference();
             foreach($dlbs as &$tdlb){
                 if($tdlb['book_id']){
-                    $book = new Book($tdlb['book_id']);
-                    $tdlb = array_merge($tdlb, $book->getRecord());
-                    if($book->book_marketing_info_id){
-                        $bmi = new BookMarketingInfo($book->book_marketing_info_id);
+                    if($tdlb['book_or_material']){
+                        $book = new Material($tdlb['book_id']);
+                        $book = $book->getRecord();
+                        $book['book_id'] = $book['material_id'];
+                        $book['authors'] = $book['author_name'];
+                        $book['book_or_material'] = 1;
+                    } else {
+                        $book = new Book($tdlb['book_id']);
+                        $book = $book->getRecord();
+                        $book['book_or_material'] = 0;
+                    }
+                    $tdlb = array_merge($tdlb, $book);
+                    if(isset($book['book_marketing_info_id']) && $book['book_marketing_info_id']){
+                        $bmi = new BookMarketingInfo($book['book_marketing_info_id']);
                         $tdlb['book_marketing_info'] = $bmi->getRecord();
                     }
                     $tdlb['prefs'] = $dlp->getPreferencesByBook($tdlb['distribution_list_book_id']);
@@ -177,7 +194,8 @@ class DistributionListPreference extends Table {
                     }
 
                     $br = new BookReview();
-                    $tdlb['book_review'] = $br->find(array(array('book_id',$book->book_id)),null, false);
+
+                    $tdlb['book_review'] = $br->find(array(array('book_id',$book['book_id']),'AND',array('book_or_material',$book['book_or_material'])),null, false);
 
                 }
             }
@@ -187,14 +205,14 @@ class DistributionListPreference extends Table {
      }
         
     function getPreferencesByPerson($distribution_list_id, $person_id){
-        $sql = "SELECT distribution_list_preference_id, book_id, rank, assigned, (SELECT COUNT(*) FROM distribution_list_preference dlp2, distribution_list_book dlb2 WHERE dlp2.distribution_list_book_id = dlb2.distribution_list_book_id AND assigned = 1 AND dlb2.book_id = dlb.book_id) as other_assigned FROM distribution_list_preference dlp, distribution_list_book dlb WHERE dlp.distribution_list_book_id = dlb.distribution_list_book_id AND person_id = ? AND distribution_list_id = ? ORDER BY rank ASC";
+        $sql = "SELECT distribution_list_preference_id, book_id, rank, assigned, book_or_material, (SELECT COUNT(*) FROM distribution_list_preference dlp2, distribution_list_book dlb2 WHERE dlp2.distribution_list_book_id = dlb2.distribution_list_book_id AND assigned = 1 AND dlb2.book_id = dlb.book_id) as other_assigned FROM distribution_list_preference dlp, distribution_list_book dlb WHERE dlp.distribution_list_book_id = dlb.distribution_list_book_id AND person_id = ? AND distribution_list_id = ? ORDER BY rank ASC";
         $rows = $this->db->exec($sql,array($person_id, $distribution_list_id));
 
         return $rows;
     }
 
     function getPreferencesByBook($distribution_list_book_id){
-        $sql = 'SELECT distribution_list_preference_id, person_id, rank, assigned, (SELECT COUNT(*) FROM distribution_list_preference dlp2, distribution_list_book dlb2 WHERE dlp2.distribution_list_book_id = dlb2.distribution_list_book_id AND assigned = 1 AND dlb2.book_id = dlb.book_id) as other_assigned 
+        $sql = 'SELECT distribution_list_preference_id, person_id, rank, assigned, book_or_material, (SELECT COUNT(*) FROM distribution_list_preference dlp2, distribution_list_book dlb2 WHERE dlp2.distribution_list_book_id = dlb2.distribution_list_book_id AND assigned = 1 AND dlb2.book_id = dlb.book_id) as other_assigned 
                 FROM distribution_list_preference dlp, distribution_list_book dlb
                 WHERE dlp.distribution_list_book_id = dlb.distribution_list_book_id AND dlb.distribution_list_book_id = ? ORDER BY rank ASC';
         $rows = $this->db->exec($sql,array($distribution_list_book_id));
@@ -252,10 +270,18 @@ class DistributionListPreference extends Table {
         $dlp = new DistributionListPreference();
         $ranks = $dlp->getPreferencesByPerson($distribution_list_id, $_SESSION['JR']->user['person_id']);
         foreach($ranks as &$r){
-            $bk = new Book($r['book_id']);
-            $r = array_merge($r,$bk->getRecord());
+            if(!$r['book_or_material']){
+                $bk = new Book($r['book_id']);
+                $bk = $bk->getRecord();
+            } else {
+                $bk = new Material($r['book_id']);
+                $bk = $bk->getRecord();
+                $bk['book_id'] = $bk['material_id'];
+                $bk['authors'] = $bk['author_name'];
+            }
+            $r = array_merge($r,$bk);
 
-            if($r['book_marketing_info_id']){
+            if(isset($r['book_marketing_info_id']) && $r['book_marketing_info_id']) {
                 $bm = new BookMarketingInfo($r['book_marketing_info_id']);
                 $r = array_merge($r,$bm->getRecord());
             }

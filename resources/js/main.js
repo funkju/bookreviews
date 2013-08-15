@@ -142,8 +142,11 @@ jQuery.fn.swap = function(b) {
     return this.pushStack( stack );
 };
 
-function bookModal(book_id){
-    $.ajax({
+function bookModal(book_id, type){
+    if(typeof type == "undefined") type = 'book';
+
+    if(type == 'book'){
+      $.ajax({
         url:  uri+"/svc/call",
         type: 'GET',
         dataType: 'json',
@@ -155,5 +158,23 @@ function bookModal(book_id){
         success: function(ret){
           procReturn(ret);
         }
-    });
+      });
+    } else {
+      $.ajax({
+        url:  uri+"/svc/call",
+        type: 'GET',
+        dataType: 'json',
+        data: {
+            cls: 'Material',
+            fn: 'getMaterialModal',
+            params: [book_id]
+        },
+        success: function(ret){
+          procReturn(ret);
+        }
+      });
+
+
+
+    }
 }

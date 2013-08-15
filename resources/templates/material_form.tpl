@@ -37,19 +37,27 @@
             </div>
             <div id="material_form_line_6">
                 <label for="material_content_url">Content URL</label>
+                <label for="material_price">Price</label>
                 <br>
                 <input class="material" type="text" name="material_content_url" id="material__content_url" tabindex=5 value="{$material.material_url}">
+                <input class="material" type="text" name="material_price" id="material__price" tabindex=5 value="{$material.price}">
             </div>
             <div id="material_form_line_7">
                 <label for="material_access_inst">Access Instructions</label>
                 <br>
                 <textarea class="material" type="text" name="material_access_inst" id="material__access_inst" tabindex=6>{$material.access_inst}</textarea>
             </div>
+            <div id="material_form_line_8">
+                <label for="material_notes">Notes</label>
+                <br>
+                <textarea class="material" type="text" name="material_notes" id="material__notes" tabindex=6>{$material.notes}</textarea>
+            </div>
             {if $material.screen_status ne 4}
                 {assign var="screen_status_display" value="display:none;"}
             {/if}
-            <div id="material_form_line_8">
+            <div id="material_form_line_9">
                 <label for="material_screen_status">Screening Status</label>
+
                 <label for="material_aes" id="material_ae_label" style="{$screen_status_display}">Associate Editor</label>
                 <br>
                 <select class="material" name="material_screen_status" id="material__screen_status" tabindex=7>
@@ -58,14 +66,32 @@
                     <option value=3 {if $material.screen_status eq 3}selected{/if}>Distribute</option>
                     <option value=4 {if $material.screen_status eq 4}selected{/if}>Assign</option>
                 </select>
-                <select class="material" name="material_assoc_editor" id="material__ae_id" tabindex=8 style="{$screen_status_display}">
+                <select class="book_review" name="book_review_assoc_editor_id" id="book_review__assoc_editor_id" tabindex=8 style="{$screen_status_display}">
                     <option value="">--Select--</option>
                 {foreach from=$aes item="ae"}
-                    <option {if $ae.person_id eq $material.ae_id}selected{/if} value="{$ae.person_id}">{$ae.first_name} {$ae.last_name}</option>
+                    <option {if $ae.person_id eq $book_review.assoc_editor_id}selected{/if} value="{$ae.person_id}">{$ae.first_name} {$ae.last_name}</option>
                 {/foreach}
                 </select>
             </div>  
-            <div id="material_form_line_9">
+            <div id="material_form_line_10">
+                <label for="book_review__journal_id">Journal</label>
+                <label for="book_reivew__review_type_id">Review Type</label>
+                <br>
+                <input type='hidden' id='book_review__book_review_id' value="{if $book_review}{$book_review.book_review_id}{/if}">
+                {assign var="class" value="book_review"}
+                {assign var="id" value=book_review__journal_id}
+                {if $book_review}
+                    {assign var="selected" value=$book_review.journal_id}
+                {/if}
+                {include file="journal_select.tpl"}
+                {assign var="id" value=book_review__review_type_id}
+                {assign var="class" value="book_review"}
+                {if $book_review}
+                    {assign var="selected" value=$book_review.review_type_id}
+                {/if}
+                {include file="review_type_select.tpl"}
+            </div>
+            <div id="material_form_line_11">
                 <div id="material_save_button" class="button">Save</div>
                 <div id="material_discard_button" class="button2">Discard Changes</div>
             </div>

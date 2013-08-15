@@ -32,12 +32,21 @@
     </thead>
     <tbody>
 {foreach from=$books item=book}
-        <tr id="{$book.book_id}">
+        {if $book.book_id}
+        <tr id="{$book.book_id}" class='book'>
             <td class="check">  <input type="checkbox" {if !$distribution_list || $book.selected}checked{/if}></td>
-            <td class="title">  {$book.title}</td>
+            <td class="title"><span class="book">{$book.title}</span></td>
             <td class="authors">{$book.authors}</td>
             <td class="Year">{$book.year}</td>
         </tr>
+        {else}
+        <tr id="{$book.material_id}" class='material'>
+            <td class="check">  <input type="checkbox" {if !$distribution_list || $book.selected}checked{/if}></td>
+            <td class="title"><span class="material">{$book.title}</span></td>
+            <td class="authors">{$book.author_name}</td>
+            <td class="Year">N/A</td>
+        </tr>
+        {/if}
 {foreachelse}
         <tr>
             <td colspan=3 style='padding-top: 20px; font-size: 20px; font-weight: bold;'>No Books Available</td>

@@ -11,14 +11,28 @@ class BookReview extends Table {
     function getReviewsByIssue($journal_id, $issue_month, $issue_year){
         $br = new BookReview();
         
-        $sql = "SELECT book_review_id, publish_order, br.notes as notes , book.book_id as book_id, book.title as title, ae.person_id as ae_id, ae.first_name as ae_first_name, 
-                       ae.last_name as ae_last_name, rev.person_id as rev_id, rev.first_name as rev_first_name, rev.last_name as rev_last_name, journal.journal as journal
-                FROM book_review br, person ae, person rev, book, journal
-                WHERE br.journal_id = ? AND issue_month = ? AND issue_year = ? AND
-                      br.book_id = book.book_id AND br.assoc_editor_id = ae.person_id AND
+        $sql = "SELECT book_review_id, publish_order, br.notes as notes , 
+                       b.title as book_title, m.title as material_title,
+                       ae.person_id as ae_id, ae.first_name as ae_first_name, 
+                       ae.last_name as ae_last_name, rev.person_id as rev_id, 
+                       rev.first_name as rev_first_name, rev.last_name as rev_last_name, journal.journal as journal
+                FROM person ae, person rev, journal,book_review br
+                LEFT OUTER JOIN book b ON b.book_id = br.book_id
+                LEFT OUTER JOIN material m ON m.material_id = br.book_id
+                WHERE br.journal_id = ? AND issue_month = ? AND issue_year = ? AND br.assoc_editor_id = ae.person_id AND
                       br.reviewer_id = rev.person_id AND br.journal_id = journal.journal_id
-                ORDER BY publish_order ASC";
+                ORDER BY publish_order ASC;";
         $brs = $br->db->exec($sql, array($journal_id, $issue_month, $issue_year));
+
+        foreach($brs as &$br){
+            if($br['book_title']){
+                $br['book_or_material'] = 0;
+                $br['title'] = $br['book_title'];
+            } else {
+                $br['book_or_material'] = 1;
+                $br['title'] = $br['material_title'];
+            }
+        }
 
         if(isset($_SESSION['JR'])){
             $smarty = $_SESSION['JR']->getSmarty();
@@ -52,18 +66,32 @@ class BookReview extends Table {
 		function getOrderToPublishList($journal_id, $issue_month, $issue_year){
         $br = new BookReview();
         
-        $sql = "SELECT book.title as title, book.book_num as book_num, book.authors as author, book.publisher as publisher, book.year as publish_date,
-				               book_marketing_info.isbn as isbn, book_marketing_info.pages as pages, book_marketing_info.price as price,
-											 book_marketing_info.binding_type as binding_type
-                FROM book_review br, person ae, person rev, book, journal, book_marketing_info
+        $sql = "SELECT br.book_or_material, b.title as book_title, b.book_num as book_book_num, b.authors as book_author, m.title as material_title,
+                       m.book_num as material_book_num, m.author_name as material_author, b.publisher as publisher, b.year as publish_date,
+                       book_marketing_info.isbn as isbn, book_marketing_info.pages as pages, book_marketing_info.price as book_price,
+                       m.price as material_price, book_marketing_info.binding_type as binding_type
+                FROM person ae, person rev, journal, book_review br
+                LEFT OUTER JOIN book b ON b.book_id = br.book_id
+                LEFT OUTER JOIN material m ON m.material_id = br.book_id
+                LEFT OUTER JOIN book_marketing_info ON b.book_marketing_info_id = book_marketing_info.book_marketing_info_id
                 WHERE br.journal_id = ? AND issue_month = ? AND issue_year = ? AND
-                      br.book_id = book.book_id AND br.assoc_editor_id = ae.person_id AND
+                      br.assoc_editor_id = ae.person_id AND
                       br.reviewer_id = rev.person_id AND br.journal_id = journal.journal_id
-											AND book_marketing_info.book_marketing_info_id = book.book_marketing_info_id
                 ORDER BY publish_order ASC";
         $brs = $br->db->exec($sql, array($journal_id, $issue_month, $issue_year));
 
 				foreach($brs as &$br){
+                    if($br['book_or_material']){
+                        $br['title'] = $br['material_title'];
+                        $br['author'] = $br['material_author'];
+                        $br['book_num'] = $br['material_book_num'];
+                        $br['price'] = $br['material_price'];
+                    } else {
+                        $br['title'] = $br['book_title'];
+                        $br['author'] = $br['book_author'];
+                        $br['book_num'] = $br['book_book_num'];
+                        $br['price'] = $br['book_price'];
+                    }
 					if(strlen($br['isbn']) == 13){
 						$i = $br['isbn'];
 						$br['isbn'] = substr($i,0,3)."-".substr($i,3,1)."-".substr($i,4,2)."-".substr($i,6,6)."-".substr($i,12);
@@ -106,14 +134,27 @@ class BookReview extends Table {
 			function getAuthorInformationList($journal_id, $issue_month, $issue_year){
         $br = new BookReview();
         
-        $sql = "SELECT book_review_id, book.title as title, book.book_num as num rev.person_id,
-                       rev.first_name as first_name, rev.last_name as last_name
-                FROM book_review br, person rev, book, journal
-                WHERE br.journal_id = ? AND issue_month = ? AND issue_year = ? AND
-                      br.book_id = book.book_id AND br.reviewer_id = rev.person_id 
-											AND br.journal_id = journal.journal_id
-                ORDER BY publish_order ASC";
+        $sql = "SELECT  br.book_or_material, book_review_id, b.title as book_title, b.book_num as book_book_num, rev.person_id,
+                        m.title as material_title, m.book_num as material_book_num,
+                        rev.first_name as first_name, rev.last_name as last_name
+                    FROM person rev, journal, book_review br
+                    LEFT OUTER JOIN book b ON b.book_id = br.book_id
+                    LEFT OUTER JOIN material m ON m.material_id = br.book_id
+                    WHERE br.journal_id = 1 AND issue_month = 6 AND issue_year = 2013 AND
+                          br.reviewer_id = rev.person_id AND br.journal_id = journal.journal_id
+                    ORDER BY publish_order ASC;";
         $brs = $br->db->exec($sql, array($journal_id, $issue_month, $issue_year));
+
+                foreach($brs as &$br){
+                    if($br['book_or_material']){
+                        $br['title'] = $br['material_title'];
+                        $br['num'] = $br['material_book_num'];
+                    } else {
+                        $br['title'] = $br['book_title'];
+                        $br['num'] = $br['book_book_num'];
+                    }
+                }
+
 
 				$addr = new Address();
 				foreach($brs as &$br){
@@ -201,7 +242,7 @@ class BookReview extends Table {
             $params['search'] = "Everything";
         }
 
-        $select = "SELECT br.book_review_id as book_review_id, b.title as book_title,
+        $select = "SELECT br.book_review_id as book_review_id, b.title as book_title, m.title as material_title,
                           j.journal as journal, rt.review_type as review_type,
                           br.date_promised as date_promised, br.date_received as date_received,
                           CONCAT(ae.first_name, ' ', ae.last_name) as ae_name, 
@@ -214,6 +255,8 @@ class BookReview extends Table {
                     ON rev.person_id = br.reviewer_id
                   LEFT OUTER JOIN book b
                     ON b.book_id = br.book_id
+                  LEFT OUTER JOIN material m
+                    ON m.material_id = br.book_id
                   LEFT OUTER JOIN journal j
                     ON br.journal_id = j.journal_id
                   LEFT OUTER JOIN review_type rt
@@ -221,7 +264,7 @@ class BookReview extends Table {
 
         switch($params['search']){
             case "Everything":
-                $where = " WHERE b.title like '".addslashes($params['query'])."%'";
+                $where = " WHERE (b.title like '%".addslashes($params['query'])."%' OR m.title like '%".addslashes($params['query'])."%') ";
                 $ex = explode(" ",$params['query']);
                 foreach($ex as $e){
                     $where .= " OR rev.last_name like '%".addslashes($e)."%'
@@ -232,7 +275,7 @@ class BookReview extends Table {
                 }
                 break;
             case "Book Title":
-                $where = " WHERE b.title like '".addslashes($params['query'])."%'";
+                $where = " WHERE (b.title like '%".addslashes($params['query'])."%' OR m.title like '%".addslashes($params['query'])."%')";
                 break;
             case "Reviewer":
                 $ex = explode(" ",$params['query']);
@@ -278,6 +321,7 @@ class BookReview extends Table {
         $revs = $db->exec($select.$from.$where.$post);
         if(empty($revs)) print_r($db->getError());
 
+
         $count = $db->exec("SELECT COUNT(*) as total ".$from.$where);
         if(empty($count)) print_r($db->getError());
         $count = $count[0]['total'];
@@ -288,9 +332,12 @@ class BookReview extends Table {
             $r['rev_name']   = utf8_encode($r['rev_name']);
             $r['ae_name']    = utf8_encode($r['ae_name']);
             $r['book_title'] = utf8_encode($r['book_title']);
+            $r['material_title'] = utf8_encode($r['material_title']);
             if($r['date_received']) $r['date_received'] = date("n/d/Y", $r['date_received']); 
             if($r['date_promised']) $r['date_promised'] = date("n/d/Y", $r['date_promised']);
 
+            if($r['book_title']) $r['book_or_material'] = 0;
+            else $r['book_or_material'] = 1;
             
             foreach($ex as $e){
                 switch($params['search']){
@@ -301,6 +348,7 @@ class BookReview extends Table {
                         break;
                     case "Book Title":
                        $r['book_title'] = highlightStr($r['book_title'],$e); 
+                       $r['material_title'] = highlightStr($r['material_title'],$e);
                         break;
                     case "Assoc Editor":
                         $r['ae_name']    = highlightStr($r['ae_name'],$e);
@@ -357,10 +405,14 @@ class BookReview extends Table {
 
     function getMyReviews($user_id){
 
-        $select = "SELECT br.book_review_id as book_review_id, b.title as book_title,
-                          j.journal as journal, rt.review_type as review_type,
+        $select = "SELECT br.book_review_id as book_review_id, 
+                          b.title as book_title,
+                          m.title as material_title,
+                          br.book_or_material,
+                          j.journal as journal, 
+                          rt.review_type as review_type, 
                           FROM_UNIXTIME(br.date_promised, '%Y-%m-%d') as date_promised, 
-													FROM_UNIXTIME(br.date_received, '%Y-%m-%d') as date_received,
+						  FROM_UNIXTIME(br.date_received, '%Y-%m-%d') as date_received,
                           CONCAT(ae.first_name, ' ', ae.last_name) as ae_name, 
                           CONCAT(rev.first_name, ' ', rev.last_name) as rev_name ";
 
@@ -371,6 +423,8 @@ class BookReview extends Table {
                     ON rev.person_id = br.reviewer_id
                   LEFT OUTER JOIN book b
                     ON b.book_id = br.book_id
+                  LEFT OUTER JOIN material m
+                    ON m.material_id = br.book_id
                   LEFT OUTER JOIN journal j
                     ON br.journal_id = j.journal_id
                   LEFT OUTER JOIN review_type rt
@@ -486,7 +540,7 @@ class BookReview extends Table {
 
     }
 
-    function sortPendingReviews($a,$b){
+    static function sortPendingReviews($a,$b){
         return ($a['book']['title'] < 
                $b['book']['title']); 
 

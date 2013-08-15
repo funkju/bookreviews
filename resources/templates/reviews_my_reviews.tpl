@@ -4,7 +4,7 @@
     {foreach from=$reviews item=review}
         <li id="{$review.book_review_id}" onclick="window.location = '{$uri}/reviews/edit/{$review.book_review_id}';">
             <span style="font-weight: bold;">
-                {$review.book_title}
+                {if $review.book_or_material}{$review.material_title}{else}{$review.book_title}{/if}
             </span><br>
             <div style="margin-left: 10px;">
                 <i>{$review.journal} - {$review.review_type}</i><br>

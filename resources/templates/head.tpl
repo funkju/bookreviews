@@ -39,7 +39,7 @@ a.pdf { background: url("{/literal}{$uri}{literal}/resources/images/pdf-icon.png
 <script type="text/javascript" src="{$uri}/resources/js/{$type}.js"></script>
   
 <script type="text/javascript" src="{$uri}/resources/js/procReturn.min.js?{$smarty.now}"></script>
-<script type="text/javascript" src="{$uri}/resources/js/main.min.js?{$smarty.now}"></script>
+<script type="text/javascript" src="{$uri}/resources/js/main.js?{$smarty.now}"></script>
 
 
 <script src="{$uri}/resources/js/grid.locale-en.js" type="text/javascript"></script>

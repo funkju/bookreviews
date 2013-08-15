@@ -18,7 +18,7 @@
     {foreach from=$ae.prefs item="p"}
                     <tr class="{cycle values='even,odd'}">
                         <td class="assign_rank">{if $p.rank != 0}{$p.rank}.{/if}</td>
-                        <td class="assign_title"><b>{$p.book.title}</b><br><i style='margin-left: 10px;'>By:</i> {$p.book.authors}</td>
+                        <td class="assign_title"><b>{$p.book.title}</b><br><i style='margin-left: 10px;'>By:</i> {if $p.book.book_or_material}{$p.book.author_name}{else}{$p.book.authors}{/if}</td>
                         <td class="assign_button">
                         {if $p.book_review.date_received}
                             <div class="button3" style="width: 92px;">Review Recieved</div>
@@ -52,7 +52,7 @@
         {assign var="any_more" value=1}
                     <tr class="{cycle values='even,odd'}">
                         <td class="assign_rank"></td>
-                        <td class="assign_title"><b>{$book.title}</b><br><i style='margin-left: 10px;'>By:</i> {$book.authors}</td>
+                        <td class="assign_title"><b>{$book.title}</b><br><i style='margin-left: 10px;'>By:</i> {if $p.book.book_or_material}{$p.book.author_name}{else}{$p.book.authors}{/if}</td>
                         <td class="assign_button">
                         {if $other_assigned eq 0}
                           <div class="button2" onClick="assignBook(1,null,{literal}{{/literal}person_id:{$ae.person_id},book_id:{$book.book_id},distribution_list_id:{$distribution_list.distribution_list_id}{literal}}{/literal})">Assign</div>
@@ -74,7 +74,7 @@
   {foreach from=$books item="book"}
   {if !$only || $only eq $book.book_id}
          {if !$only}<div id="dist_assign_{$book.book_id}" style="min-height: 50px">{/if}
-            <h3><table><tr><td><img style="max-height: 50px; max-width: 70px" src="{$book.book_marketing_info.thumbnail_url}"></td><td style="padding-left: 10px; vertical-align: bottom;font-size: 14px"><b>{$book.title}</b><br><i style='margin-left: 10px;'>By:</i> {$book.authors}</span></td></tr></table></h3>
+            <h3><table><tr><td><img style="max-height: 50px; max-width: 70px" src="{$book.book_marketing_info.thumbnail_url}"></td><td style="padding-left: 10px; vertical-align: bottom;font-size: 14px"><b>{$book.title}</b><br><i style='margin-left: 10px;'>By:</i> {if $p.book.book_or_material}{$p.book.author_name}{else}{$p.book.authors}{/if}</span></td></tr></table></h3>
                 <table>
 {if !$book.book_review.date_received}
     {foreach from=$book.prefs item="p"}

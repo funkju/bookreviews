@@ -15,13 +15,13 @@ class Book extends Table {
 
 
 		function create($data){
-			$b = new Book();
-			$s = $b->db->exec("SELECT MAX(book_num) as m FROM book");
+            $b = new Book();
+            $s = $b->db->exec("SELECT MAX(b.book_num) as m, MAX(m.book_num) as m2 FROM book b, material m");
 
-			if(!empty($s)){
-				$new_book_num = $s[0]['m'] + 1;
-				$data['book_num'] = $new_book_num;
-			}
+            if(!empty($s)){
+                $new_book_num = ($s[0]['m'] > $s[0]['m2']) ? $s[0]['m'] + 1 : $s[0]['m2']+1;
+                $data['book_num'] = $new_book_num;
+            }
 
 			return parent::create($data);
 		}
@@ -71,10 +71,17 @@ class Book extends Table {
 
         $nonDistributed = array();
         foreach($brs as $b){
-            $book = new Book($b['book_id']);
-            $book = $book->getRecord();
-            $nonDistributed[] = $book;
+            if($b['book_or_material'] == 0){
+                $book = new Book($b['book_id']);
+                $book = $book->getRecord();
+                $nonDistributed[] = $book;
+            } else {
+                $mat = new Material($b['book_id']);
+                $mat = $mat->getRecord();
+                $nonDistributed[] = $mat;
+            }
         }
+
 
         usort($nonDistributed, array('Book','sortBookList'));
 
@@ -117,7 +124,7 @@ class Book extends Table {
             $bmi = $bmi->getRecord();
         }
         $br = new BookReview();
-        $brs = $br->find(array(array('book_id',$book_id)));
+        $brs = $br->find(array(array('book_id',$book_id),'AND',array('book_or_material',0)));
         $br = null;
         if($brs){
             $br = $brs[0]->getRecord();

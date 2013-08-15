@@ -21,6 +21,10 @@ This form allows you to submit an self-published and web-based resources to be r
 	<label>Content Description:</label>
 		<textarea name="description" class="default" rows=8>Enter information similar to what would go in a book's preface.</textarea>
 </div>
+<div id='cost'>
+	<label>Price:</label>
+	<input type="text" name="price" class="default" value="Price to the general public" />
+</div>
 <div>
 	<label>Content URL:</label>
 		<input type='text' name='material_url' class="default" value="e.g. http://www.mysite.com/mybook.html">
@@ -28,6 +32,10 @@ This form allows you to submit an self-published and web-based resources to be r
 <div id='access_inst'>
 	<label>Access Instructions:</label>
 	<textarea name='access_inst' rows=8 class="default">e.g. Does the site require a username and password?</textarea>
+</div>
+<div id='notes'>
+	<label>Notes:</label>
+	<textarea name='notes' rows=8 class="default">Anything else we need to know?</textarea>
 </div>
 <div id='author_yes_wrap'>
 	<label><input id='author_yes' type='checkbox' name='author_yes' checked=checked /> I am the author of the material being submitted.</label>

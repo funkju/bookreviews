@@ -14,6 +14,19 @@ class Material extends Table {
     const ASSIGN = 4; 
 
 
+     function create($data){
+            $b = new Book();
+            $s = $b->db->exec("SELECT MAX(b.book_num) as m, MAX(m.book_num) as m2 FROM book b, material m");
+
+            if(!empty($s)){
+                $new_book_num = ($s[0]['m'] > $s[0]['m2']) ? $s[0]['m'] + 1 : $s[0]['m2']+1;
+                $data['book_num'] = $new_book_num;
+            }
+
+            return parent::create($data);
+        }
+
+
     /**
      * getMaterialForm
      * 
@@ -25,10 +38,34 @@ class Material extends Table {
         if(isset($_SESSION['JR'])){
 
             $smarty = $_SESSION['JR']->getSmarty();
+
+
+            //Get "BookReview"
+            $br = new BookReview();
+            $brs = $br->find(array(array('book_or_material','=',1),'AND',array('book_id','=',$this->material_id)));
+
+            if(isset($brs[0])){
+               $smarty->assign('book_review', $brs[0]->getRecord());
+            } else {
+               $smarty->assign('book_review', false);
+            }
+
+
             //Get all AEs
             $person = new Person();
             $smarty->assign('aes', $person->find(array(array('role_id',Role::ASSOC_EDITOR)),array('ORDER'=>'last_name'), false)); 
             $smarty->assign('material',$this->getRecord());
+            $smarty->assign('journals', array(
+                    array('journal_id'=>Journal::JASA, 'journal' => 'JASA'),
+                    array('journal_id'=>Journal::TAS, 'journal'=>'TAS')
+                ));
+
+            $smarty->assign('review_types', array(
+                   array('review_type_id'=> ReviewType::TELEGRAPHIC, 'review_type' => 'Telegraphic'),
+                    array('review_type_id'=> ReviewType::SHORT , 'review_type'        => 'Short'),
+                   array('review_type_id'=>  ReviewType::MEDIUM , 'review_type'       => 'Medium'),
+                   array('review_type_id'=>  ReviewType::LONG , 'review_type'       => 'Long')
+                ));
 
 
             //Assign Roles
@@ -73,7 +110,9 @@ class Material extends Table {
 
         $br = new Material();
 
-        $brs = $br->find(array(array(array('screen_status', '=',),'OR',array('journal_id','=',2)),'AND',array('assoc_editor_id','is',null), 'AND', array('book_id','is not',null)),null,false);
+        $brs = $br->find(array(array(array('screen_status', '=', Material::DISTRIBUTE))));
+
+        $dlb = new DistributionListBook();
 
         $nonDistributed = array();
         foreach($brs as $b){
@@ -88,6 +127,61 @@ class Material extends Table {
         return $nonDistributed;
 
     }
+
+    static function getMaterialModal($mat_id){
+        $b = new Material($mat_id);
+      
+        $br = new BookReview();
+        $brs = $br->find(array(array('book_id',$mat_id),'AND',array('book_or_material',1)));
+        $br = null;
+        if($brs){
+            $br = $brs[0]->getRecord();
+        }
+
+        if(isset($_SESSION['JR'])){
+            $smarty = $_SESSION['JR']->getSmarty();
+            $smarty->assign('material', $b->getRecord());
+            $smarty->assign('book_review',$br);
+            $smarty->assign('journals',array(
+                Journal::JASA => 'JASA',
+                Journal::TAS  => 'TAS',
+                Journal::NO_REVIEW => 'No Review'
+            ));
+            $smarty->assign('review_types',array(
+                ReviewType::TELEGRAPHIC => 'Telegraphic',
+                ReviewType::SHORT  => 'Short',
+                ReviewType::MEDIUM => 'Medium',
+                ReviewType::LONG => 'Long'
+            ));
+
+            $html = $smarty->fetch('material_modal.tpl');
+
+
+            $id = "book_modal_".time();
+            $ret = array(
+                array(
+                    'js'   => "$('#body').height($(window).height());
+                               $('#body').css('overflow-y','hidden');
+                               var div = document.createElement('div');
+                               div.id = '$id';
+                               $('body').append(div);
+                               //$(div).css('height', $(document).height());
+                               "
+                ),
+                array(
+                    'id'   => $id,
+                    'html' => $html
+                )
+            );
+
+
+            return json_encode($ret);
+
+
+        }
+
+    }
+
 
 
 

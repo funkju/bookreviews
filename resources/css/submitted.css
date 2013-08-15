@@ -181,24 +181,44 @@ input.disabled, select.disabled, textarea.disabled {
     height: 75px;
 }
 #material_form_line_8 {
+    height: 105px;
+}
+#material_form_line_8 label, #material_form_line_8 textarea, #material_form_line_8 div.readonly {
+    display: block;
+    float: left;
+    width: 270px;
+    margin-right: 10px;
+}
+#material_form_line_8 textarea {
+    height: 75px;
+}
+#material_form_line_9 {
     height: 45px;
 }
-#material_form_line_8 label, #material_form_line_8 select, #material_form_line_8 div.readonly {
+#material_form_line_9 label, #material_form_line_9 select, #material_form_line_9 div.readonly {
     display: block;
     float: left;
     width: 130px;
     margin-right: 10px;
 }
+#material_form_line_10 {
+    height: 45px;
+}
+#material_form_line_10 label, #material_form_line_10 select, #material_form_line_10 div.readonly {
+    display: block;
+    float: left;
+    width: 130px;
+    margin-right: 10px;
+}
+#material_form_line_11 { height: 1.4em; margin-top: 15px; }
 
-#material_form_line_9 { height: 1.4em; margin-top: 15px; }
-
-#material_form_line_9 div.button {
+#material_form_line_11 div.button {
     margin-right: 15px;
     height: 11px;
     float: left;
     font-size: 14px;
 }
-#material_form_line_9 div.button2 {
+#material_form_line_11 div.button2 {
     width: 100px;
     height: 11px;
     float: left;

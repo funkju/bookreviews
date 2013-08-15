@@ -59,6 +59,8 @@ var submitContent = function(){
 				'submitter_email': $("input[name=submitter_email]").val(),
 				'title': $("input[name=title]").val(),
 				'description': $("textarea[name=description]").val(),
+				'price': $("input[name=price]").val(),
+				'notes': $("textarea[name=notes]").val(),
 				'material_url': $("input[name=material_url]").val(),
 				'access_inst': $("textarea[name=access_inst]").val(),
 				'author_name': $("input[name=author_name]").val(),
@@ -74,6 +76,8 @@ var submitContent = function(){
 			} else {
 				$("input[name=title]").val(''),
 				$("textarea[name=description]").val($("textarea[name=description]")[0].className).addClass("default");
+				$("input[name=price]").val('');
+				$("textarea[name=notes]").val('');
 				$("input[name=material_url]").val($("input[name=material_url]")[0].className).addClass("default");
 				$("textarea[name=access_inst]").val($("textarea[name=access_inst]")[0].className).addClass("default");
 				$("input[name=author_name]").val(''),

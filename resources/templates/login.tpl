@@ -8,7 +8,7 @@
 {literal}
 <script type="text/javascript">
     $(document).keypress( function(e){
-        if(e.keyCode == 13){
+        if(e.keyCode == 13 && $("#for-login").is(":visible")){
             doLogin();
             return false;
         }

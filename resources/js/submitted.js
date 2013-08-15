@@ -69,6 +69,57 @@ function delMaterial() {
 
 function saveMaterial(){
     saveFunc = function(){
+        //If there are "book_review" fields to save
+        if($(".dirty_input.book_review").length != 0){
+                var data = {
+                    id : $("#book_review__book_review_id").val(),
+                    cls : "bookreview",
+                    data : {}
+                };
+                var dirty = $(".dirty_input.book_review");
+                for(var i = 0; i < dirty.length; i++){
+                    data.data[dirty[i].id.replace("book_review__","")] = $(dirty[i]).val();    
+                }
+
+                if($("#book_review__book_review_id").val()){
+                    $.ajax({
+                        url: uri+"/svc/update",
+                        type: 'POST',
+                        dataType: 'json',
+                        data: data,
+                        async: true,
+                        success: function(ret){
+                            if(ret != -1){
+                                showStatus("Successfully Saved!");
+                            } else {
+                                showStatus("Error on saving content.");
+                            }
+                        }
+                    });
+                } else {
+                    data.data['book_or_material'] = 1;
+                    data.data['book_id'] = $("#material__material_id").val();
+
+                    $.ajax({
+                        url: uri+"/svc/create",
+                        type: 'POST',
+                        dataType: 'json',
+                        data: data,
+                        async: true,
+                        success: function(ret){
+                            if(ret != -1){
+                                showStatus("Successfully Saved!");
+                            } else {
+                                showStatus("Error on saving content.");
+                            }
+                        }
+                    });
+                }
+
+
+        }
+
+
         //If there are "material" fields to save
         if($(".dirty_input.material").length != 0 && $("#material__material_id").val()){
             var data = {
